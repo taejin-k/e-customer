@@ -9,20 +9,20 @@ type BannerProps = {
 
 export const Banner = ({ backgroundImage, title, description }: BannerProps) => {
   return (
-    <BannerContainer backgroundImage={backgroundImage}>
-      <BannerWrapper>
+    <Container backgroundImage={backgroundImage}>
+      <Wrapper>
         <Text color="onWhite" typography="title-xxl-bold">
           {title}
         </Text>
         <Text color="onWhite" typography="text-xxl-medium">
           {description}
         </Text>
-      </BannerWrapper>
-    </BannerContainer>
+      </Wrapper>
+    </Container>
   );
 };
 
-const BannerContainer = styled.div<{ backgroundImage: string }>`
+const Container = styled.div<{ backgroundImage: string }>`
   position: relative;
   width: 100%;
   height: 100%;
@@ -35,7 +35,7 @@ const BannerContainer = styled.div<{ backgroundImage: string }>`
   })}
 `;
 
-const BannerWrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
