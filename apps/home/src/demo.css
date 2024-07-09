@@ -1,0 +1,15 @@
+#banner-section .swiper-pagination {
+  top: unset;
+  left: 10%;
+  bottom: 48px;
+  width: 80%;
+  background-color: var(--ruler-static-scale-color-black-alpha-500);
+}
+
+#banner-section .swiper-pagination-progressbar-fill {
+  background-color: var(--ruler-static-scale-color-white);
+}
+
+#gate-section .swiper-slide {
+  width: unset !important;
+}

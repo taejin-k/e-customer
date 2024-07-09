@@ -1,0 +1,19 @@
+{
+  "name": "@29cm/config-storybook",
+  "version": "0.0.0",
+  "main": "index.ts",
+  "devDependencies": {
+    "@emotion/react": "*",
+    "@emotion/styled": "*",
+    "@storybook/addon-viewport": "*",
+    "@storybook/nextjs": "*",
+    "@storybook/react": "*",
+    "@types/node": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "next": "*",
+    "react": "*",
+    "react-dom": "*",
+    "typescript": "*"
+  }
+}

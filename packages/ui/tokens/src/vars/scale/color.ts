@@ -1,0 +1,55 @@
+export const gray00 = 'var(--ruler-scale-color-gray-00)';
+export const gray100 = 'var(--ruler-scale-color-gray-100)';
+export const gray200 = 'var(--ruler-scale-color-gray-200)';
+export const gray300 = 'var(--ruler-scale-color-gray-300)';
+export const gray400 = 'var(--ruler-scale-color-gray-400)';
+export const gray500 = 'var(--ruler-scale-color-gray-500)';
+export const gray600 = 'var(--ruler-scale-color-gray-600)';
+export const gray700 = 'var(--ruler-scale-color-gray-700)';
+export const gray800 = 'var(--ruler-scale-color-gray-800)';
+export const gray900 = 'var(--ruler-scale-color-gray-900)';
+export const gray950 = 'var(--ruler-scale-color-gray-950)';
+
+export const red100 = 'var(--ruler-scale-color-red-100)';
+export const red200 = 'var(--ruler-scale-color-red-200)';
+export const red300 = 'var(--ruler-scale-color-red-300)';
+export const red400 = 'var(--ruler-scale-color-red-400)';
+export const red500 = 'var(--ruler-scale-color-red-500)';
+export const red600 = 'var(--ruler-scale-color-red-600)';
+export const red700 = 'var(--ruler-scale-color-red-700)';
+export const red800 = 'var(--ruler-scale-color-red-800)';
+export const red900 = 'var(--ruler-scale-color-red-900)';
+export const red950 = 'var(--ruler-scale-color-red-950)';
+
+export const blue100 = 'var(--ruler-scale-color-blue-100)';
+export const blue200 = 'var(--ruler-scale-color-blue-200)';
+export const blue300 = 'var(--ruler-scale-color-blue-300)';
+export const blue400 = 'var(--ruler-scale-color-blue-400)';
+export const blue500 = 'var(--ruler-scale-color-blue-500)';
+export const blue600 = 'var(--ruler-scale-color-blue-600)';
+export const blue700 = 'var(--ruler-scale-color-blue-700)';
+export const blue800 = 'var(--ruler-scale-color-blue-800)';
+export const blue900 = 'var(--ruler-scale-color-blue-900)';
+export const blue950 = 'var(--ruler-scale-color-blue-950)';
+
+export const yellow100 = 'var(--ruler-scale-color-yellow-100)';
+export const yellow200 = 'var(--ruler-scale-color-yellow-200)';
+export const yellow300 = 'var(--ruler-scale-color-yellow-300)';
+export const yellow400 = 'var(--ruler-scale-color-yellow-400)';
+export const yellow500 = 'var(--ruler-scale-color-yellow-500)';
+export const yellow600 = 'var(--ruler-scale-color-yellow-600)';
+export const yellow700 = 'var(--ruler-scale-color-yellow-700)';
+export const yellow800 = 'var(--ruler-scale-color-yellow-800)';
+export const yellow900 = 'var(--ruler-scale-color-yellow-900)';
+export const yellow950 = 'var(--ruler-scale-color-yellow-950)';
+
+export const green100 = 'var(--ruler-scale-color-green-100)';
+export const green200 = 'var(--ruler-scale-color-green-200)';
+export const green300 = 'var(--ruler-scale-color-green-300)';
+export const green400 = 'var(--ruler-scale-color-green-400)';
+export const green500 = 'var(--ruler-scale-color-green-500)';
+export const green600 = 'var(--ruler-scale-color-green-600)';
+export const green700 = 'var(--ruler-scale-color-green-700)';
+export const green800 = 'var(--ruler-scale-color-green-800)';
+export const green900 = 'var(--ruler-scale-color-green-900)';
+export const green950 = 'var(--ruler-scale-color-green-950)';

@@ -1,0 +1,35 @@
+{
+  "name": "@29cm/ui-emotion",
+  "version": "1.0.0",
+  "main": "./src/index.ts",
+  "scripts": {
+    "storybook": "storybook dev -p 6200 --quiet"
+  },
+  "dependencies": {
+    "@emotion/react": "*",
+    "@emotion/styled": "*"
+  },
+  "devDependencies": {
+    "@29cm/config-storybook": "workspace:*",
+    "@29cm/ui-reset": "workspace:*",
+    "@29cm/ui-tokens": "workspace:*",
+    "@storybook/addon-actions": "*",
+    "@storybook/addon-essentials": "*",
+    "@storybook/addon-interactions": "*",
+    "@storybook/addon-links": "*",
+    "@storybook/addon-onboarding": "*",
+    "@storybook/addon-viewport": "*",
+    "@storybook/addons": "*",
+    "@storybook/nextjs": "*",
+    "@storybook/react": "*",
+    "@storybook/theming": "*",
+    "@types/node": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "next": "*",
+    "react": "*",
+    "react-dom": "*",
+    "storybook": "*",
+    "typescript": "*"
+  }
+}

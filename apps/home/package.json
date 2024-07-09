@@ -1,0 +1,28 @@
+{
+  "name": "@29cm/home",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "*",
+    "react": "*",
+    "react-dom": "*",
+    "swiper": "^11.0.7"
+  },
+  "devDependencies": {
+    "@29cm/mocks-data": "workspace:*",
+    "@29cm/ui-emotion": "workspace:*",
+    "@29cm/ui-reset": "workspace:*",
+    "@29cm/ui-tokens": "workspace:*",
+    "@29cm/utils-common": "workspace:*",
+    "@types/node": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "typescript": "*"
+  }
+}
