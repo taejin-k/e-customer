@@ -1,11 +1,11 @@
 import { Text } from '@29cm/ui-emotion';
 import styled from '@emotion/styled';
 
-type BannerProps = {
+interface BannerProps {
   backgroundImage: string;
   title: string;
   description: string;
-};
+}
 
 export const Banner = ({ backgroundImage, title, description }: BannerProps) => {
   return (

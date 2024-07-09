@@ -3,11 +3,11 @@ import { vars } from '@29cm/ui-tokens';
 import styled from '@emotion/styled';
 import { default as NextImage } from 'next/image';
 
-type GateProps = {
+interface GateProps {
   image: string;
   label: string;
   icon: JSX.Element;
-};
+}
 
 const Gate = ({ image, label, icon }: GateProps) => {
   return (
