@@ -1,4 +1,4 @@
-import { BannerType, FeedType, GateType } from './home';
+import { BannerType, CartType, FeedType, GateType } from './home';
 
 export interface BaseResponse {
   errors: {
@@ -19,4 +19,8 @@ export interface GatesResponse extends BaseResponse {
 
 export interface FeedsResponse extends BaseResponse {
   data: FeedType[];
+}
+
+export interface CartResponse extends BaseResponse {
+  data: CartType[];
 }

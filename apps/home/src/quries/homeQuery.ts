@@ -1,5 +1,6 @@
-import { useQuery } from '@tanstack/react-query';
-import { getBannersAPI, getFeedsAPI, getGatesAPI } from 'src/apis/homeAPI';
+import { useMutation, useQuery } from '@tanstack/react-query';
+import { addCartAPI, getBannersAPI, getCartsAPI, getFeedsAPI, getGatesAPI, removeCartAPI } from 'src/apis/homeAPI';
+import { AddCartRequest, RemoveCartRequest } from 'src/types/request';
 
 export const useBannersQuery = () => {
   const query = useQuery({
@@ -26,4 +27,31 @@ export const useFeedsQuery = () => {
   });
 
   return query;
+};
+
+export const useCartsQuery = () => {
+  const query = useQuery({
+    queryKey: ['carts'],
+    queryFn: () => getCartsAPI(),
+  });
+
+  return query;
+};
+
+export const useAddCartMutation = (onSuccess: () => void) => {
+  const mutation = useMutation({
+    mutationFn: (request: AddCartRequest) => addCartAPI(request),
+    onSuccess,
+  });
+
+  return mutation;
+};
+
+export const useRemoveCartMutation = (onSuccess: () => void) => {
+  const mutation = useMutation({
+    mutationFn: (request: RemoveCartRequest) => removeCartAPI(request),
+    onSuccess,
+  });
+
+  return mutation;
 };

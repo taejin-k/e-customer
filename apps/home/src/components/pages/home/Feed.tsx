@@ -3,7 +3,7 @@ import { vars } from '@29cm/ui-tokens';
 import styled from '@emotion/styled';
 import { default as NextImage } from 'next/image';
 import { useRouter } from 'next/router';
-import { FeedType, RelatedProductType } from 'src/types/home';
+import { FeedType } from 'src/types/home';
 import { openNewWindow } from 'src/utils/url';
 import RelatedProduct from './RelatedProduct';
 
@@ -24,10 +24,6 @@ const Feed = ({ feed }: FeedProps) => {
     router.push(`/products/${recommendCode}`);
   };
 
-  const handleCart = (relatedProduct: RelatedProductType, isAddedCart: boolean, handleToggleCart: () => void) => {
-    handleToggleCart();
-  };
-
   return (
     <Container>
       <Wrapper>
@@ -46,7 +42,11 @@ const Feed = ({ feed }: FeedProps) => {
           {!!relatedProducts.length && (
             <RelatedProductArea>
               {relatedProducts.map((relatedProduct) => (
-                <RelatedProduct key={relatedProduct.productNo} relatedProduct={relatedProduct} onCart={handleCart} />
+                <RelatedProduct
+                  key={relatedProduct.productNo}
+                  relatedProduct={relatedProduct}
+                  recommendCode={recommendCode}
+                />
               ))}
             </RelatedProductArea>
           )}

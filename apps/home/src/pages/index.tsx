@@ -9,6 +9,9 @@ import { FreeMode, Grid, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 export default function Home() {
+  const { data: feeds } = useFeedsQuery();
+  const { data: carts } = useCartsQuery();
+
   return (
     <CommonLayout>
       <Swiper

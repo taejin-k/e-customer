@@ -31,3 +31,8 @@ export interface RelatedProductType {
   availableCoupon: boolean;
   priorityScore: number;
 }
+
+export interface CartType extends RelatedProductType {
+  recommendCode: number;
+  count: number;
+}
