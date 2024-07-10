@@ -1,9 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { getBannersAPI, getFeedsAPI, getGatesAPI } from 'src/apis/homeAPI';
-import { BannerType, FeedType, GateType } from 'src/types/home';
 
 export const useBannersQuery = () => {
-  const query = useQuery<BannerType[]>({
+  const query = useQuery({
     queryKey: ['banners'],
     queryFn: () => getBannersAPI(),
   });
@@ -12,7 +11,7 @@ export const useBannersQuery = () => {
 };
 
 export const useGatesQuery = () => {
-  const query = useQuery<GateType[]>({
+  const query = useQuery({
     queryKey: ['gates'],
     queryFn: () => getGatesAPI(),
   });
@@ -21,7 +20,7 @@ export const useGatesQuery = () => {
 };
 
 export const useFeedsQuery = () => {
-  const query = useQuery<FeedType[]>({
+  const query = useQuery({
     queryKey: ['feeds'],
     queryFn: () => getFeedsAPI(),
   });
