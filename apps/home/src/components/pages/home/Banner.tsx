@@ -1,28 +1,29 @@
 import { Text } from '@29cm/ui-emotion';
 import styled from '@emotion/styled';
+import { BannerType } from 'src/types/home';
 
 interface BannerProps {
-  backgroundImage: string;
-  title: string;
-  description: string;
+  banner: BannerType;
 }
 
-export const Banner = ({ backgroundImage, title, description }: BannerProps) => {
+export const Banner = ({ banner }: BannerProps) => {
+  const { imageUrl, bannerTitle, bannerContent } = banner;
+
   return (
-    <Container backgroundImage={backgroundImage}>
+    <Container imageUrl={imageUrl}>
       <Wrapper>
         <Text color="onWhite" typography="title-xxl-bold">
-          {title}
+          {bannerTitle}
         </Text>
         <Text color="onWhite" typography="text-xxl-medium">
-          {description}
+          {bannerContent}
         </Text>
       </Wrapper>
     </Container>
   );
 };
 
-const Container = styled.div<{ backgroundImage: string }>`
+const Container = styled.div<{ imageUrl: string }>`
   position: relative;
   width: 100%;
   height: 100%;
@@ -31,7 +32,7 @@ const Container = styled.div<{ backgroundImage: string }>`
   background-repeat: none;
 
   ${(props) => ({
-    backgroundImage: `url(${props.backgroundImage})`,
+    backgroundImage: `url(${props.imageUrl})`,
   })}
 `;
 

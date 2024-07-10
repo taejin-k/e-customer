@@ -26,6 +26,7 @@ const RelatedProduct = ({ relatedProduct, recommendCode }: RelatedProductProps) 
   const { mutate: removeCart, isPending: removePending } = useRemoveCartMutation(handleToggleCartSuccess);
 
   function handleToggleCartSuccess() {
+    queryClient.invalidateQueries({ queryKey: QUERY_KEY_CART.CART_LIST });
     setIsAddedCart((prev) => !prev);
   }
 

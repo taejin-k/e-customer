@@ -2,19 +2,22 @@ import { Text } from '@29cm/ui-emotion';
 import { vars } from '@29cm/ui-tokens';
 import styled from '@emotion/styled';
 import { default as NextImage } from 'next/image';
+import { GateType } from 'src/types/home';
+import { openNewWindow } from 'src/utils/url';
 
 interface GateProps {
-  image: string;
-  label: string;
+  gate: GateType;
   icon: JSX.Element;
 }
 
-const Gate = ({ image, label, icon }: GateProps) => {
+const Gate = ({ gate, icon }: GateProps) => {
+  const { imageUrl, gateTitle, linkValue } = gate;
+
   return (
-    <Container>
-      <Image width={38} height={38} src={image} alt={label} />
+    <Container onClick={() => openNewWindow(linkValue)}>
+      <Image width={38} height={38} src={imageUrl} alt={gateTitle} />
       <Text color="primary" typography="text-l-medium">
-        {label}
+        {gateTitle}
       </Text>
       {icon}
     </Container>

@@ -14,7 +14,7 @@ export interface BannersResponse extends BaseResponse {
 }
 
 export interface GatesResponse extends BaseResponse {
-  data: GateType[];
+  data: GateType[][];
 }
 
 export interface FeedsResponse extends BaseResponse {
