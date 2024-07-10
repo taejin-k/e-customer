@@ -3,8 +3,9 @@ import { vars } from '@29cm/ui-tokens';
 import styled from '@emotion/styled';
 import { useQueryClient } from '@tanstack/react-query';
 import { default as NextImage } from 'next/image';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useAddCartMutation, useRemoveCartMutation } from 'src/quries/homeQuery';
+import { QUERY_KEY_CART } from 'src/quries/queryKeys';
 import { CartType, RelatedProductType } from 'src/types/home';
 import { formatNumberWithCommas } from 'src/utils/number';
 
@@ -17,14 +18,14 @@ const RelatedProduct = ({ relatedProduct, recommendCode }: RelatedProductProps) 
   const { imageUrl, productName, price, productNo } = relatedProduct;
 
   const queryClient = useQueryClient();
+  const carts: CartType[] = queryClient.getQueryData(QUERY_KEY_CART.CART_LIST) || [];
 
-  const [isAddedCart, setIsAddedCart] = useState(false);
+  const [isAddedCart, setIsAddedCart] = useState(() => carts.some((cart) => cart.productNo === productNo));
 
   const { mutate: addCart, isPending: addPending } = useAddCartMutation(handleToggleCartSuccess);
   const { mutate: removeCart, isPending: removePending } = useRemoveCartMutation(handleToggleCartSuccess);
 
   function handleToggleCartSuccess() {
-    queryClient.invalidateQueries({ queryKey: ['carts'] });
     setIsAddedCart((prev) => !prev);
   }
 
@@ -32,15 +33,8 @@ const RelatedProduct = ({ relatedProduct, recommendCode }: RelatedProductProps) 
     if (isPending) return;
 
     if (!isAddedCart) addCart({ ...relatedProduct, count: 1, recommendCode });
-    else if (isAddedCart) removeCart({ productNo: relatedProduct.productNo });
+    else removeCart({ productNo: relatedProduct.productNo });
   };
-
-  useEffect(() => {
-    const carts: CartType[] = queryClient.getQueryData(['carts']) || [];
-    const isAddedCart = carts.some((cart) => cart.productNo === productNo);
-
-    setIsAddedCart(isAddedCart);
-  }, [queryClient, productNo]);
 
   return (
     <Container>
