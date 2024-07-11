@@ -1,41 +1,21 @@
 import { CartIcon, Text } from '@29cm/ui-emotion';
 import { vars } from '@29cm/ui-tokens';
 import styled from '@emotion/styled';
-import { useQueryClient } from '@tanstack/react-query';
 import { default as NextImage } from 'next/image';
-import { useState } from 'react';
-import { useAddCartMutation, useRemoveCartMutation } from 'src/quries/homeQuery';
-import { QUERY_KEY_CART } from 'src/quries/queryKeys';
-import { CartType, RelatedProductType } from 'src/types/home';
+import useCart from 'src/hooks/useCart';
+import { CartType } from 'src/types/home';
+import { RecommendedProductType } from 'src/types/products';
 import { formatNumberWithCommas } from 'src/utils/number';
 
 interface RelatedProductProps {
-  relatedProduct: RelatedProductType;
-  recommendCode: number;
+  product: RecommendedProductType;
+  carts: CartType[];
 }
 
-const RelatedProduct = ({ relatedProduct, recommendCode }: RelatedProductProps) => {
-  const { imageUrl, productName, price, productNo } = relatedProduct;
+const RelatedProduct = ({ product, carts }: RelatedProductProps) => {
+  const { imageUrl, productName, price, productNo } = product;
 
-  const queryClient = useQueryClient();
-  const carts: CartType[] = queryClient.getQueryData(QUERY_KEY_CART.CART_LIST) || [];
-
-  const [isAddedCart, setIsAddedCart] = useState(() => carts.some((cart) => cart.productNo === productNo));
-
-  const { mutate: addCart, isPending: addPending } = useAddCartMutation(handleToggleCartSuccess);
-  const { mutate: removeCart, isPending: removePending } = useRemoveCartMutation(handleToggleCartSuccess);
-
-  function handleToggleCartSuccess() {
-    queryClient.invalidateQueries({ queryKey: QUERY_KEY_CART.CART_LIST });
-    setIsAddedCart((prev) => !prev);
-  }
-
-  const handleClickCart = (relatedProduct: RelatedProductType, isAddedCart: boolean, isPending: boolean) => {
-    if (isPending) return;
-
-    if (!isAddedCart) addCart({ ...relatedProduct, count: 1, recommendCode });
-    else removeCart({ productNo: relatedProduct.productNo });
-  };
+  const { isAddedCart, handleClickCart } = useCart({ carts, productNo });
 
   return (
     <Container>
@@ -48,7 +28,7 @@ const RelatedProduct = ({ relatedProduct, recommendCode }: RelatedProductProps) 
           {formatNumberWithCommas(price)}원
         </Text>
       </TextWrapper>
-      <IconWrapper onClick={() => handleClickCart(relatedProduct, isAddedCart, addPending || removePending)}>
+      <IconWrapper onClick={() => handleClickCart(product)}>
         <CartIcon width={18} height={18} isEmpty={!isAddedCart} />
       </IconWrapper>
     </Container>

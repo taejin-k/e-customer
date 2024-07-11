@@ -62,7 +62,7 @@ export default function Home() {
       {!!feeds.length && (
         <RecommendedProduct>
           {feeds.map((feed) => (
-            <Feed key={feed.feedNo} feed={feed} />
+            <Feed key={feed.feedNo} feed={feed} carts={carts} />
           ))}
         </RecommendedProduct>
       )}
