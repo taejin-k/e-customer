@@ -7,7 +7,7 @@ interface BannerProps {
   banner: BannerType;
 }
 
-export const Banner = ({ banner }: BannerProps) => {
+const Banner = ({ banner }: BannerProps) => {
   const { imageUrl, bannerTitle, bannerContent, bannerLink } = banner;
 
   return (
@@ -23,6 +23,8 @@ export const Banner = ({ banner }: BannerProps) => {
     </Container>
   );
 };
+
+export default Banner;
 
 const Container = styled.div<{ imageUrl: string }>`
   position: relative;

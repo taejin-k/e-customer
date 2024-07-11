@@ -1,6 +1,6 @@
 import { CommonLayout } from '@29cm/ui-emotion';
 import styled from '@emotion/styled';
-import { Banner } from 'src/components/pages/home/Banner';
+import Banner from 'src/components/pages/home/Banner';
 import Feed from 'src/components/pages/home/Feed';
 import Gate from 'src/components/pages/home/Gate';
 import LeftArrowSVG from 'src/components/svgs/LeftArrowSVG';
