@@ -5,6 +5,7 @@ import Feed from 'src/components/pages/home/Feed';
 import Gate from 'src/components/pages/home/Gate';
 import RightArrowSVG from 'src/components/svgs/RightArrowSVG';
 import { useBannersQuery, useCartsQuery, useFeedsQuery, useGatesQuery } from 'src/quries/homeQuery';
+import { NewFeedType } from 'src/types/home';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/grid';
@@ -16,8 +17,16 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 export default function Home() {
   const { data: banners = [] } = useBannersQuery();
   const { data: gatesList = [] } = useGatesQuery();
-  const { data: feeds = [] } = useFeedsQuery();
   const { data: carts = [] } = useCartsQuery();
+  const { data: feeds = [] } = useFeedsQuery();
+
+  const newFeeds: NewFeedType[] = feeds.map((feed) => ({
+    ...feed,
+    relatedProducts: feed.relatedProducts.map((relatedProduct) => ({
+      ...relatedProduct,
+      isAddedCart: carts.some((cart) => cart.productNo === relatedProduct.productNo),
+    })),
+  }));
 
   return (
     <CommonLayout cartCount={carts?.length || 0}>
@@ -59,10 +68,10 @@ export default function Home() {
         </GateWrapper>
       )}
 
-      {!!feeds.length && (
+      {!!newFeeds.length && (
         <RecommendedProduct>
-          {feeds.map((feed) => (
-            <Feed key={feed.feedNo} feed={feed} carts={carts} />
+          {newFeeds.map((feed) => (
+            <Feed key={feed.feedNo} feed={feed} />
           ))}
         </RecommendedProduct>
       )}

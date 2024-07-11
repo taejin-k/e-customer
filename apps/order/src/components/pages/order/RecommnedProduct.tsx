@@ -3,19 +3,30 @@ import { vars } from '@29cm/ui-tokens';
 import styled from '@emotion/styled';
 import { default as NextImage } from 'next/image';
 import { forwardRef } from 'react';
-import useCart from 'src/hooks/useCart';
-import { CartType, RecommendedProductType } from 'src/types/order';
+import { useAddCartMutation, useRemoveCartMutation } from 'src/quries/orderQuery';
+import { NewRecommendedProductType } from 'src/types/order';
+import { omit } from 'src/utils/common';
 import { formatNumberWithCommas } from 'src/utils/number';
 
 interface ProductProps {
-  product: RecommendedProductType;
-  carts: CartType[];
+  recommendedProduct: NewRecommendedProductType;
 }
 
-const RecommnedProduct = forwardRef<HTMLDivElement, ProductProps>(({ product, carts }, ref) => {
-  const { imageUrl, availableCoupon, productNo, productName, price } = product;
+const RecommnedProduct = forwardRef<HTMLDivElement, ProductProps>(({ recommendedProduct }, ref) => {
+  const { imageUrl, availableCoupon, productName, price, isAddedCart } = recommendedProduct;
 
-  const { isAddedCart, handleToggleCart } = useCart({ carts, productNo });
+  const { mutate: addCart, isPending: addPending } = useAddCartMutation();
+  const { mutate: removeCart, isPending: removePending } = useRemoveCartMutation();
+
+  const handleToggleCart = (recommendedProduct: NewRecommendedProductType, isPending: boolean) => {
+    if (isPending) return;
+
+    const recommendCode = recommendedProduct.recommendCode;
+    const productNo = recommendedProduct.productNo;
+
+    if (!isAddedCart) addCart({ ...omit(recommendedProduct, ['isAddedCart']), recommendCode, count: 1 });
+    else removeCart({ productNo });
+  };
 
   return (
     <Container ref={ref}>
@@ -34,7 +45,7 @@ const RecommnedProduct = forwardRef<HTMLDivElement, ProductProps>(({ product, ca
             {formatNumberWithCommas(price)}원
           </Text>
         </InfoBox>
-        <IconBox onClick={() => handleToggleCart(product)}>
+        <IconBox onClick={() => handleToggleCart(recommendedProduct, addPending || removePending)}>
           <CartIcon width={18} height={18} isEmpty={!isAddedCart} />
         </IconBox>
       </InfoWrapper>

@@ -39,29 +39,23 @@ export const useCartsQuery = () => {
   return query;
 };
 
-export const useAddCartMutation = (onSuccess: () => void) => {
+export const useAddCartMutation = () => {
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
     mutationFn: (request: AddCartRequest) => addCartAPI(request),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: QUERY_KEY_CART.CART_LIST });
-      onSuccess();
-    },
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: QUERY_KEY_CART.CART_LIST }),
   });
 
   return mutation;
 };
 
-export const useRemoveCartMutation = (onSuccess: () => void) => {
+export const useRemoveCartMutation = () => {
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
     mutationFn: (request: RemoveCartRequest) => removeCartAPI(request),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: QUERY_KEY_CART.CART_LIST });
-      onSuccess();
-    },
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: QUERY_KEY_CART.CART_LIST }),
   });
 
   return mutation;

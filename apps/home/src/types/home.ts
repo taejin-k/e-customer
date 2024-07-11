@@ -32,6 +32,20 @@ export interface RelatedProductType {
   priorityScore: number;
 }
 
+export interface NewFeedType {
+  feedNo: number;
+  feedTitle: string;
+  feedContents: string;
+  feedLink: string;
+  imageUrl: string;
+  relatedProducts: NewRelatedProductType[];
+  recommendCode: number;
+}
+
+export interface NewRelatedProductType extends RelatedProductType {
+  isAddedCart: boolean;
+}
+
 export interface CartType extends RelatedProductType {
   recommendCode: number;
   count: number;

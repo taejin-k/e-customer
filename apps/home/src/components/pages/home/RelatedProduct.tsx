@@ -2,20 +2,28 @@ import { CartIcon, Text } from '@29cm/ui-emotion';
 import { vars } from '@29cm/ui-tokens';
 import styled from '@emotion/styled';
 import { default as NextImage } from 'next/image';
-import useCart from 'src/hooks/useCart';
-import { CartType } from 'src/types/home';
-import { RecommendedProductType } from 'src/types/products';
+import { useAddCartMutation, useRemoveCartMutation } from 'src/quries/homeQuery';
+import { NewRelatedProductType } from 'src/types/home';
+import { omit } from 'src/utils/common';
 import { formatNumberWithCommas } from 'src/utils/number';
 
 interface RelatedProductProps {
-  product: RecommendedProductType;
-  carts: CartType[];
+  relatedProduct: NewRelatedProductType;
+  recommendCode: number;
 }
 
-const RelatedProduct = ({ product, carts }: RelatedProductProps) => {
-  const { imageUrl, productName, price, productNo } = product;
+const RelatedProduct = ({ relatedProduct, recommendCode }: RelatedProductProps) => {
+  const { imageUrl, productName, price, isAddedCart } = relatedProduct;
 
-  const { isAddedCart, handleToggleCart } = useCart({ carts, productNo });
+  const { mutate: addCart, isPending: addPending } = useAddCartMutation();
+  const { mutate: removeCart, isPending: removePending } = useRemoveCartMutation();
+
+  const handleToggleCart = (relatedProduct: NewRelatedProductType, recommendCode: number, isPending: boolean) => {
+    if (isPending) return;
+
+    if (!isAddedCart) addCart({ ...omit(relatedProduct, ['isAddedCart']), recommendCode, count: 1 });
+    else removeCart({ productNo: relatedProduct.productNo });
+  };
 
   return (
     <Container>
@@ -28,7 +36,7 @@ const RelatedProduct = ({ product, carts }: RelatedProductProps) => {
           {formatNumberWithCommas(price)}원
         </Text>
       </TextWrapper>
-      <IconWrapper onClick={() => handleToggleCart(product)}>
+      <IconWrapper onClick={() => handleToggleCart(relatedProduct, recommendCode, addPending || removePending)}>
         <CartIcon width={18} height={18} isEmpty={!isAddedCart} />
       </IconWrapper>
     </Container>

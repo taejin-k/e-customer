@@ -3,16 +3,15 @@ import { vars } from '@29cm/ui-tokens';
 import styled from '@emotion/styled';
 import { default as NextImage } from 'next/image';
 import { useRouter } from 'next/router';
-import { CartType, FeedType } from 'src/types/home';
+import { NewFeedType } from 'src/types/home';
 import { openNewWindow } from 'src/utils/url';
 import RelatedProduct from './RelatedProduct';
 
 interface FeedProps {
-  feed: FeedType;
-  carts: CartType[];
+  feed: NewFeedType;
 }
 
-const Feed = ({ feed, carts }: FeedProps) => {
+const Feed = ({ feed }: FeedProps) => {
   const router = useRouter();
   const { feedTitle, feedContents, feedLink, imageUrl, recommendCode, relatedProducts } = feed;
 
@@ -45,8 +44,8 @@ const Feed = ({ feed, carts }: FeedProps) => {
               {relatedProducts.map((relatedProduct) => (
                 <RelatedProduct
                   key={relatedProduct.productNo}
-                  product={{ ...relatedProduct, recommendCode }}
-                  carts={carts}
+                  relatedProduct={relatedProduct}
+                  recommendCode={recommendCode}
                 />
               ))}
             </RelatedProductArea>

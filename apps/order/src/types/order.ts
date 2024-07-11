@@ -15,3 +15,8 @@ export interface CartType extends RelatedProductType {
 export interface RecommendedProductType extends RelatedProductType {
   recommendCode: number;
 }
+
+export interface NewRecommendedProductType extends RelatedProductType {
+  recommendCode: number;
+  isAddedCart: boolean;
+}

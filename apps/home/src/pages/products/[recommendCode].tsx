@@ -6,6 +6,7 @@ import { GoBack } from 'src/components/commons/GoBack';
 import RecommnedProduct from 'src/components/pages/products/RecommnedProduct';
 import { useCartsQuery } from 'src/quries/homeQuery';
 import { useRecommendedProductsQuery } from 'src/quries/productsQuery';
+import { NewRecommendedProductType } from 'src/types/products';
 
 export default function Products() {
   const router = useRouter();
@@ -15,12 +16,17 @@ export default function Products() {
 
   const { data: carts = [] } = useCartsQuery();
   const {
-    data: recommendedProducts,
+    data: recommendedProducts = [],
     fetchNextPage,
     hasNextPage,
   } = useRecommendedProductsQuery({
     recommendCode: Number(recommendCode),
   });
+
+  const newRecommendedProducts: NewRecommendedProductType[] = recommendedProducts.map((recommendedProduct) => ({
+    ...recommendedProduct,
+    isAddedCart: carts.some((cart) => cart.productNo === recommendedProduct.productNo),
+  }));
 
   useEffect(() => {
     const handleObserver = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
@@ -43,11 +49,10 @@ export default function Products() {
   return (
     <CommonLayout prefix={<GoBack size={22} />} title="지원자님을 위한 추천상품" cartCount={carts?.length || 0}>
       <Container>
-        {recommendedProducts?.map((recommendedProduct, index, array) => (
+        {newRecommendedProducts?.map((recommendedProduct, index, array) => (
           <RecommnedProduct
             key={recommendedProduct.productNo}
-            product={recommendedProduct}
-            carts={carts}
+            recommendedProduct={recommendedProduct}
             ref={index === array.length - 1 ? targetRef : null}
           />
         ))}
