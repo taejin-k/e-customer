@@ -1,6 +1,7 @@
 import { CommonLayout } from '@29cm/ui-emotion';
 import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
+import { useEffect, useRef } from 'react';
 import { GoBack } from 'src/components/commons/GoBack';
 import RecommnedProduct from 'src/components/pages/products/RecommnedProduct';
 import { useCartsQuery } from 'src/quries/homeQuery';
@@ -15,14 +16,45 @@ export default function Products() {
   const router = useRouter();
   const { recommendCode } = router.query;
 
+  const targetRef = useRef<HTMLDivElement>(null);
+
   const { data: carts = [] } = useCartsQuery();
-  const { data: recommendedProducts = [] } = useRecommendedProductsQuery({ recommendCode: Number(recommendCode) });
+  const {
+    data: recommendedProducts,
+    fetchNextPage,
+    hasNextPage,
+  } = useRecommendedProductsQuery({
+    recommendCode: Number(recommendCode),
+  });
+
+  useEffect(() => {
+    const handleObserver = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+      const target = entries[0];
+
+      if (target.isIntersecting && hasNextPage) {
+        fetchNextPage();
+        observer.unobserve(target.target);
+      }
+    };
+
+    const observer = new IntersectionObserver(handleObserver);
+    if (targetRef.current) {
+      observer.observe(targetRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [recommendedProducts, hasNextPage, fetchNextPage]);
 
   return (
     <CommonLayout prefix={<GoBack size={22} />} title="지원자님을 위한 추천상품" cartCount={carts?.length || 0}>
       <Container>
-        {recommendedProducts.map((recommendedProduct) => (
-          <RecommnedProduct key={recommendedProduct.productNo} product={recommendedProduct} carts={carts} />
+        {recommendedProducts?.map((recommendedProduct, index, array) => (
+          <RecommnedProduct
+            key={recommendedProduct.productNo}
+            product={recommendedProduct}
+            carts={carts}
+            ref={index === array.length - 1 ? targetRef : null}
+          />
         ))}
       </Container>
     </CommonLayout>

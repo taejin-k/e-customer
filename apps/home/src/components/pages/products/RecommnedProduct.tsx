@@ -2,6 +2,7 @@ import { CartIcon, Text } from '@29cm/ui-emotion';
 import { vars } from '@29cm/ui-tokens';
 import styled from '@emotion/styled';
 import { default as NextImage } from 'next/image';
+import { forwardRef } from 'react';
 import useCart from 'src/hooks/useCart';
 import { CartType } from 'src/types/home';
 import { RecommendedProductType } from 'src/types/products';
@@ -12,13 +13,13 @@ interface ProductProps {
   carts: CartType[];
 }
 
-const RecommnedProduct = ({ product, carts }: ProductProps) => {
+const RecommnedProduct = forwardRef<HTMLDivElement, ProductProps>(({ product, carts }, ref) => {
   const { imageUrl, availableCoupon, productNo, productName, price } = product;
 
   const { isAddedCart, handleClickCart } = useCart({ carts, productNo });
 
   return (
-    <Container>
+    <Container ref={ref}>
       <ImageWrapper>
         <Image src={imageUrl} fill alt={productName} />
         {availableCoupon && <Coupon>쿠폰</Coupon>}
@@ -40,7 +41,7 @@ const RecommnedProduct = ({ product, carts }: ProductProps) => {
       </InfoWrapper>
     </Container>
   );
-};
+});
 
 export default RecommnedProduct;
 
@@ -52,7 +53,6 @@ const ImageWrapper = styled.div`
   width: 100%;
   aspect-ratio: 1 / 1;
   position: relative;
-  cursor: pointer;
 `;
 
 const Image = styled(NextImage)`
