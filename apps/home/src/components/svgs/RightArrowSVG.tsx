@@ -1,6 +1,6 @@
 import { SvgPropsType } from 'src/types/common';
 
-const LeftArrowSVG = ({ size, viewBox = size, color = '#A0A0A0' }: SvgPropsType) => {
+const RightArrowSVG = ({ size, viewBox = size, color = '#A0A0A0' }: SvgPropsType) => {
   return (
     <svg
       width={size}
@@ -19,4 +19,4 @@ const LeftArrowSVG = ({ size, viewBox = size, color = '#A0A0A0' }: SvgPropsType)
   );
 };
 
-export default LeftArrowSVG;
+export default RightArrowSVG;

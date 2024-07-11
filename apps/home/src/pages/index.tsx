@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import Banner from 'src/components/pages/home/Banner';
 import Feed from 'src/components/pages/home/Feed';
 import Gate from 'src/components/pages/home/Gate';
-import LeftArrowSVG from 'src/components/svgs/LeftArrowSVG';
+import RightArrowSVG from 'src/components/svgs/RightArrowSVG';
 import { useBannersQuery, useCartsQuery, useFeedsQuery, useGatesQuery } from 'src/quries/homeQuery';
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -51,7 +51,7 @@ export default function Home() {
             >
               {gates.map((gate) => (
                 <SwiperSlide key={gate.gateId}>
-                  <Gate key={gate.gateId} gate={gate} icon={<LeftArrowSVG size={12} />} />
+                  <Gate key={gate.gateId} gate={gate} icon={<RightArrowSVG size={12} />} />
                 </SwiperSlide>
               ))}
             </GateSwiper>
