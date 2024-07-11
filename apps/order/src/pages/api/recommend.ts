@@ -13,8 +13,7 @@ const handler = withFilter<typeof products>(
   async (_, res) => {
     await delay(_1_SECOND);
 
-    const $slicedProducts = products.slice(0, 10);
-    const recommendProducts = shuffle<typeof products>($slicedProducts);
+    const recommendProducts = shuffle<typeof products>(products);
 
     return res
       .status(HTTP_STATUS_CODE.OK)

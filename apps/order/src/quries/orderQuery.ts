@@ -40,10 +40,11 @@ export const useRemoveCartMutation = (onSuccess: () => void) => {
   return mutation;
 };
 
-export const useRecommendedProductsQuery = () => {
+export const useRecommendedProductsQuery = (perPage: number) => {
   const query = useQuery({
     queryKey: QUERY_KEY_RECOMMENED_PRODUCT.RECOMMENDED_PRODUCT_LIST,
     queryFn: () => getRecommendedProductsAPI(),
+    select: (data) => data.slice(0, perPage),
   });
 
   return query;
