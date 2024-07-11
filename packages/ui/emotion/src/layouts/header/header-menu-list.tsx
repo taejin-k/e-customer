@@ -7,17 +7,17 @@ type HeaderMenuListProps = {
   cartCount?: number;
 };
 
-export const HeaderMenuList = memo(({ suffix, cartCount = 0 }: HeaderMenuListProps) => (
+export const HeaderMenuList = memo(({ suffix, cartCount }: HeaderMenuListProps) => (
   <HeaderMenuListContainer>
     <HeaderMenuItem>
-      {suffix !== undefined ? (
-        suffix
-      ) : (
-        <HeaderMenuLink href="http://localhost:3001">
-          <HeaderCartImage />
-          {cartCount > 0 ? <HeaderCartCountText>{cartCount}</HeaderCartCountText> : null}
-        </HeaderMenuLink>
-      )}
+      {suffix !== undefined
+        ? suffix
+        : !!cartCount && (
+            <HeaderMenuLink href="http://localhost:3001">
+              <HeaderCartImage />
+              {cartCount > 0 ? <HeaderCartCountText>{cartCount}</HeaderCartCountText> : null}
+            </HeaderMenuLink>
+          )}
     </HeaderMenuItem>
   </HeaderMenuListContainer>
 ));
