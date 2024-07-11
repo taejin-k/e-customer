@@ -29,7 +29,7 @@ const handler = withFilter<CartTypes[]>(
       await delay(_1_SECOND / 4);
 
       const cartList: CartTypes[] = await readJSON(DATABASE_PATH, []);
-      const newProduct = JSON.parse(req.body) as CartTypes;
+      const newProduct = req.body as CartTypes;
 
       const isExistsProduct = cartList.findIndex(({ productNo }) => productNo === newProduct.productNo);
       if (isExistsProduct > -1) {

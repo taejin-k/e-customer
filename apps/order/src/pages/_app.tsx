@@ -1,6 +1,7 @@
 import '@29cm/ui-reset';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import QueryProvider from 'src/quries/QueryProvider';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -12,7 +13,9 @@ export default function App({ Component, pageProps }: AppProps) {
           content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no, viewport-fit=cover"
         />
       </Head>
-      <Component {...pageProps} />
+      <QueryProvider>
+        <Component {...pageProps} />
+      </QueryProvider>
     </>
   );
 }
