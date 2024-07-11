@@ -11,6 +11,8 @@
   "dependencies": {
     "@emotion/react": "*",
     "@emotion/styled": "*",
+    "@tanstack/react-query": "*",
+    "axios": "*",
     "next": "*",
     "react": "*",
     "react-dom": "*"

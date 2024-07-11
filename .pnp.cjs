@@ -76,7 +76,6 @@ const RAW_RUNTIME_STATE =
           ["@types/react-dom", "npm:18.2.22"],\
           ["@typescript-eslint/eslint-plugin", "virtual:63b198bcdfb6d5d18022c56479fbf35b0af2b90ec1e4cd010df29653e712ccd8260be78026de72666c374f4369a611f2e16c6a9b60ddcf7158d99a02d90c7b33#npm:7.3.1"],\
           ["@typescript-eslint/parser", "virtual:63b198bcdfb6d5d18022c56479fbf35b0af2b90ec1e4cd010df29653e712ccd8260be78026de72666c374f4369a611f2e16c6a9b60ddcf7158d99a02d90c7b33#npm:7.3.1"],\
-          ["axios", "npm:1.7.2"],\
           ["eslint", "npm:8.57.0"],\
           ["eslint-config-prettier", "virtual:63b198bcdfb6d5d18022c56479fbf35b0af2b90ec1e4cd010df29653e712ccd8260be78026de72666c374f4369a611f2e16c6a9b60ddcf7158d99a02d90c7b33#npm:9.1.0"],\
           ["eslint-plugin-import", "virtual:63b198bcdfb6d5d18022c56479fbf35b0af2b90ec1e4cd010df29653e712ccd8260be78026de72666c374f4369a611f2e16c6a9b60ddcf7158d99a02d90c7b33#npm:2.29.1"],\
@@ -160,9 +159,11 @@ const RAW_RUNTIME_STATE =
           ["@29cm/utils-common", "workspace:packages/utils/common"],\
           ["@emotion/react", "virtual:505a970eb25f03a9e3507932cb3ad292428f2a824ff6ca3e11ba67d870932481988cccf8c30996bb09fe8a0cd92e1cc14337f9a037ae7e1bf9226b345e0f3e92#npm:11.11.4"],\
           ["@emotion/styled", "virtual:505a970eb25f03a9e3507932cb3ad292428f2a824ff6ca3e11ba67d870932481988cccf8c30996bb09fe8a0cd92e1cc14337f9a037ae7e1bf9226b345e0f3e92#npm:11.11.0"],\
+          ["@tanstack/react-query", "virtual:51f2f3cdc148577c4f7178d78fc3c9a6db28f714a0c68e684325addfec658db582b988518fbf6772ced6a894baac54769eff6857502a3016aa91fd29aedb9493#npm:5.50.1"],\
           ["@types/node", "npm:20.12.0"],\
           ["@types/react", "npm:18.2.67"],\
           ["@types/react-dom", "npm:18.2.22"],\
+          ["axios", "npm:1.7.2"],\
           ["next", "virtual:63b198bcdfb6d5d18022c56479fbf35b0af2b90ec1e4cd010df29653e712ccd8260be78026de72666c374f4369a611f2e16c6a9b60ddcf7158d99a02d90c7b33#npm:14.1.3"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:63b198bcdfb6d5d18022c56479fbf35b0af2b90ec1e4cd010df29653e712ccd8260be78026de72666c374f4369a611f2e16c6a9b60ddcf7158d99a02d90c7b33#npm:18.2.0"],\
@@ -182,7 +183,6 @@ const RAW_RUNTIME_STATE =
           ["@types/react-dom", "npm:18.2.22"],\
           ["@typescript-eslint/eslint-plugin", "virtual:63b198bcdfb6d5d18022c56479fbf35b0af2b90ec1e4cd010df29653e712ccd8260be78026de72666c374f4369a611f2e16c6a9b60ddcf7158d99a02d90c7b33#npm:7.3.1"],\
           ["@typescript-eslint/parser", "virtual:63b198bcdfb6d5d18022c56479fbf35b0af2b90ec1e4cd010df29653e712ccd8260be78026de72666c374f4369a611f2e16c6a9b60ddcf7158d99a02d90c7b33#npm:7.3.1"],\
-          ["axios", "npm:1.7.2"],\
           ["eslint", "npm:8.57.0"],\
           ["eslint-config-prettier", "virtual:63b198bcdfb6d5d18022c56479fbf35b0af2b90ec1e4cd010df29653e712ccd8260be78026de72666c374f4369a611f2e16c6a9b60ddcf7158d99a02d90c7b33#npm:9.1.0"],\
           ["eslint-plugin-import", "virtual:63b198bcdfb6d5d18022c56479fbf35b0af2b90ec1e4cd010df29653e712ccd8260be78026de72666c374f4369a611f2e16c6a9b60ddcf7158d99a02d90c7b33#npm:2.29.1"],\
