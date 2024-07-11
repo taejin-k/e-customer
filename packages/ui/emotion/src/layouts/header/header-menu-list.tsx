@@ -1,3 +1,4 @@
+import { vars } from '@29cm/ui-tokens';
 import styled from '@emotion/styled';
 import { memo, type ReactNode } from 'react';
 
@@ -22,11 +23,14 @@ export const HeaderMenuList = memo(({ suffix, cartCount = 0 }: HeaderMenuListPro
 ));
 
 const HeaderMenuListContainer = styled.ul`
+  display: flex;
+  align-items: center;
+  gap: 16px;
   position: absolute;
-  padding-right: 3px;
-  padding-top: 3px;
   top: 0;
   right: 0;
+  height: 44px;
+  padding-right: 20px;
   vertical-align: top;
 `;
 
@@ -37,34 +41,29 @@ const HeaderMenuItem = styled.li`
 
 const HeaderMenuLink = styled.a`
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
 `;
 
 const HeaderCartImage = styled.span`
   display: block;
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   background: url(https://img.29cm.co.kr/next29cm/sp_m_29cm.png);
-  background-size: 48px 48px;
-  background-position: -24px 0px;
+  background-size: 44px 44px;
+  background-position: -22px 0px;
 `;
 
 const HeaderCartCountText = styled.span`
   position: absolute;
-  top: 5px;
-  right: 2px;
-  width: 20px;
-  height: 20px;
+  top: -6px;
+  right: -8px;
+  width: 18px;
+  height: 18px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 10px;
   font-weight: bold;
-  background: red;
+  background: ${vars.$semantic.color.fill.accent};
   text-align: center;
   color: white;
   border-radius: 13px;

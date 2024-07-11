@@ -17,11 +17,9 @@ export const Header = memo(({ prefix, suffix, title, cartCount }: HeaderProps) =
         <HeaderMenuListBox>
           <LogoBox>{prefix !== undefined ? prefix : <LogoLink href="http://localhost:3000" />}</LogoBox>
           {title ? (
-            <HeaderTitle>
-              <Text typography="title-m-bold" color="primary">
-                {title}
-              </Text>
-            </HeaderTitle>
+            <Text typography="text-xl-bold" color="primary">
+              {title}
+            </Text>
           ) : null}
           <HeaderMenuList suffix={suffix} cartCount={cartCount} />
         </HeaderMenuListBox>
@@ -49,8 +47,7 @@ const HeaderBox = styled.header`
   left: 0;
   right: 0;
   min-width: 320px;
-  height: 50px;
-  padding: 8px 0;
+  height: 44px;
   z-index: 10;
   transform: translateY(0);
   transition: transform 0.3s;
@@ -62,29 +59,24 @@ const HeaderBox = styled.header`
 `;
 
 const HeaderMenuListBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   width: 100%;
+  height: 100%;
   transform: translateY(0);
   transition: transform 0.3s;
 `;
 
-const HeaderTitle = styled.span`
-  position: absolute;
-  top: 12px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 const LogoBox = styled.div`
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  width: 72px;
   display: flex;
-  padding: 0;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 44px;
+  padding-left: 20px;
   z-index: 1;
 
   &:hover {
@@ -100,6 +92,6 @@ const LogoLink = styled.a`
   background-size: 60px 16px;
   vertical-align: top;
   line-height: 100em;
-  width: 72px;
-  height: 18px;
+  width: 60px;
+  height: 16px;
 `;
