@@ -12,7 +12,7 @@ export const HeaderMenuList = memo(({ suffix, cartCount }: HeaderMenuListProps) 
     <HeaderMenuItem>
       {suffix !== undefined
         ? suffix
-        : !!cartCount && (
+        : cartCount !== undefined && (
             <HeaderMenuLink href="http://localhost:3001">
               <HeaderCartImage />
               {cartCount > 0 ? <HeaderCartCountText>{cartCount}</HeaderCartCountText> : null}
