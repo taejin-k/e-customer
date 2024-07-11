@@ -46,7 +46,7 @@ const RecommnedProduct = forwardRef<HTMLDivElement, ProductProps>(({ product, ca
 export default RecommnedProduct;
 
 const Container = styled.div`
-  flex: 1 1 50%;
+  flex: 0 0 50%;
 `;
 
 const ImageWrapper = styled.div`
