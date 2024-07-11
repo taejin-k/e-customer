@@ -15,7 +15,7 @@ interface RelatedProductProps {
 const RelatedProduct = ({ product, carts }: RelatedProductProps) => {
   const { imageUrl, productName, price, productNo } = product;
 
-  const { isAddedCart, handleClickCart } = useCart({ carts, productNo });
+  const { isAddedCart, handleToggleCart } = useCart({ carts, productNo });
 
   return (
     <Container>
@@ -28,7 +28,7 @@ const RelatedProduct = ({ product, carts }: RelatedProductProps) => {
           {formatNumberWithCommas(price)}원
         </Text>
       </TextWrapper>
-      <IconWrapper onClick={() => handleClickCart(product)}>
+      <IconWrapper onClick={() => handleToggleCart(product)}>
         <CartIcon width={18} height={18} isEmpty={!isAddedCart} />
       </IconWrapper>
     </Container>

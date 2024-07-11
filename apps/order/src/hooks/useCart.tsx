@@ -17,14 +17,14 @@ const useCart = ({ carts, productNo }: UseCartProps) => {
     setIsAddedCart((prev) => !prev);
   }
 
-  const handleClickCart = (product: RecommendedProductType) => {
+  const handleToggleCart = (product: RecommendedProductType) => {
     if (addPending || removePending) return;
 
     if (!isAddedCart) addCart({ ...product, count: 1 });
     else removeCart({ productNo: product.productNo });
   };
 
-  return { isAddedCart, handleClickCart };
+  return { isAddedCart, handleToggleCart };
 };
 
 export default useCart;

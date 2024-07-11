@@ -15,7 +15,7 @@ interface ProductProps {
 const RecommnedProduct = forwardRef<HTMLDivElement, ProductProps>(({ product, carts }, ref) => {
   const { imageUrl, availableCoupon, productNo, productName, price } = product;
 
-  const { isAddedCart, handleClickCart } = useCart({ carts, productNo });
+  const { isAddedCart, handleToggleCart } = useCart({ carts, productNo });
 
   return (
     <Container ref={ref}>
@@ -34,7 +34,7 @@ const RecommnedProduct = forwardRef<HTMLDivElement, ProductProps>(({ product, ca
             {formatNumberWithCommas(price)}원
           </Text>
         </InfoBox>
-        <IconBox onClick={() => handleClickCart(product)}>
+        <IconBox onClick={() => handleToggleCart(product)}>
           <CartIcon width={18} height={18} isEmpty={!isAddedCart} />
         </IconBox>
       </InfoWrapper>
