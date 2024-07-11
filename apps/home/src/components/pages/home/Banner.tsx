@@ -1,16 +1,17 @@
 import { Text } from '@29cm/ui-emotion';
 import styled from '@emotion/styled';
 import { BannerType } from 'src/types/home';
+import { openNewWindow } from 'src/utils/url';
 
 interface BannerProps {
   banner: BannerType;
 }
 
 export const Banner = ({ banner }: BannerProps) => {
-  const { imageUrl, bannerTitle, bannerContent } = banner;
+  const { imageUrl, bannerTitle, bannerContent, bannerLink } = banner;
 
   return (
-    <Container imageUrl={imageUrl}>
+    <Container imageUrl={imageUrl} onClick={() => openNewWindow(bannerLink)}>
       <Wrapper>
         <Text color="onWhite" typography="title-xxl-bold">
           {bannerTitle}
