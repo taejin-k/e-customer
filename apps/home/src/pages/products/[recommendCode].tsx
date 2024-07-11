@@ -6,11 +6,6 @@ import { GoBack } from 'src/components/commons/GoBack';
 import RecommnedProduct from 'src/components/pages/products/RecommnedProduct';
 import { useCartsQuery } from 'src/quries/homeQuery';
 import { useRecommendedProductsQuery } from 'src/quries/productsQuery';
-import 'swiper/css';
-import 'swiper/css/free-mode';
-import 'swiper/css/grid';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
 export default function Products() {
   const router = useRouter();
