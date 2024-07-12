@@ -28,7 +28,7 @@ const Feed = ({ feed }: FeedProps) => {
     <Container>
       <Wrapper>
         <ImageBox onClick={() => openNewWindow(feedLink)}>
-          <Image src={imageUrl} fill alt={feedTitle} />
+          <Image src={imageUrl} fill sizes="(min-width: 640px) 50vw, 100vw" priority alt={feedTitle} />
         </ImageBox>
         <ContentBox>
           <TextArea>

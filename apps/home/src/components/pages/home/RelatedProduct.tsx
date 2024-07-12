@@ -27,7 +27,7 @@ const RelatedProduct = ({ relatedProduct, recommendCode }: RelatedProductProps) 
 
   return (
     <Container>
-      <Image src={imageUrl} width={60} height={60} alt={productName} />
+      <Image src={imageUrl} width={60} height={60} priority alt={productName} />
       <TextWrapper>
         <Text color="primary" typography="text-xs">
           {productName}

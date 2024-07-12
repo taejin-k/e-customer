@@ -15,7 +15,7 @@ const Gate = ({ gate, icon }: GateProps) => {
 
   return (
     <Container onClick={() => openNewWindow(linkValue)}>
-      <Image width={38} height={38} src={imageUrl} alt={gateTitle} />
+      <Image width={38} height={38} priority src={imageUrl} alt={gateTitle} />
       <Text color="primary" typography="text-l-medium">
         {gateTitle}
       </Text>

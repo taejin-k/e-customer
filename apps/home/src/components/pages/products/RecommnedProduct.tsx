@@ -31,7 +31,7 @@ const RecommnedProduct = forwardRef<HTMLDivElement, ProductProps>(({ recommended
   return (
     <Container ref={ref}>
       <ImageWrapper>
-        <Image src={imageUrl} fill alt={productName} />
+        <Image src={imageUrl} fill sizes="(min-width: 640px) 50vw, 100vw" priority alt={productName} />
         {availableCoupon && <Coupon>쿠폰</Coupon>}
       </ImageWrapper>
       <InfoWrapper>
