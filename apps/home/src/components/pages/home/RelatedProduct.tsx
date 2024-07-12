@@ -22,7 +22,7 @@ const RelatedProduct = ({ relatedProduct, recommendCode }: RelatedProductProps) 
     if (isPending) return;
 
     if (!isAddedCart) addCart({ ...omit(relatedProduct, ['isAddedCart']), recommendCode, count: 1 });
-    else removeCart({ productNo: relatedProduct.productNo });
+    else removeCart({ productNo: [relatedProduct.productNo] });
   };
 
   return (

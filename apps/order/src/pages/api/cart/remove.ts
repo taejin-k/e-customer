@@ -33,10 +33,9 @@ const handler = withFilter<CartTypes[]>(
       await delay(_1_SECOND);
 
       const cartList: CartTypes[] = await readJSON(DATABASE_PATH, []);
-      const productNo = req.body.productNo;
+      const { productNo } = req.body as BodyParams;
 
-      const isExistsProduct = cartList.some((cart) => productNo === cart.productNo);
-
+      const isExistsProduct = cartList.some((cart) => productNo.includes(cart.productNo));
       if (!isExistsProduct) {
         return res.status(HTTP_STATUS_CODE.FORBIDDEN).json({
           message: RESPONSE_MESSAGE.FAILURE,
@@ -49,7 +48,7 @@ const handler = withFilter<CartTypes[]>(
         });
       }
 
-      const filteredCartList = cartList.filter((cart) => productNo !== cart.productNo);
+      const filteredCartList = cartList.filter((cart) => !productNo.includes(cart.productNo));
       const updatedData = JSON.stringify(filteredCartList);
       await fsPromises.writeFile(DATABASE_PATH, updatedData);
 

@@ -25,7 +25,7 @@ const RecommnedProduct = forwardRef<HTMLDivElement, ProductProps>(({ recommended
     const productNo = recommendedProduct.productNo;
 
     if (!isAddedCart) addCart({ ...omit(recommendedProduct, ['isAddedCart']), recommendCode, count: 1 });
-    else removeCart({ productNo });
+    else removeCart({ productNo: [productNo] });
   };
 
   return (
