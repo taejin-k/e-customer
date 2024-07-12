@@ -28,4 +28,11 @@ export interface CouponType {
   discountAmount?: number;
 }
 
-export type CouponSortType = 'rate' | 'amount' | '';
+export enum CouponSortType {
+  rate = 'rate',
+  amount = 'amount',
+}
+
+export type CouponedProductNoType = {
+  [key in CouponSortType]: number | null;
+};

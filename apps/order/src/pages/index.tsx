@@ -5,6 +5,7 @@ import { GoBack } from 'src/components/commons/GoBack';
 import CartProduct from 'src/components/pages/order/CartProduct';
 import CheckBox from 'src/components/pages/order/CheckBox';
 import NoData from 'src/components/pages/order/NoData';
+import Payment from 'src/components/pages/order/Payment';
 import RecommnedProduct from 'src/components/pages/order/RecommnedProduct';
 import {
   useCartsQuery,
@@ -13,14 +14,24 @@ import {
   useRecommendedProductsQuery,
   useRemoveCartMutation,
 } from 'src/quries/orderQuery';
-import { CartType, CouponSortType, NewRecommendedProductType } from 'src/types/order';
+import {
+  CartType,
+  CouponSortType,
+  CouponType,
+  CouponedProductNoType,
+  NewRecommendedProductType,
+} from 'src/types/order';
+import { getKeys } from 'src/utils/common';
 
 export default function Order() {
   const targetRef = useRef<HTMLDivElement>(null);
 
   const [perPage, setPerPage] = useState(10);
-  const [checkedCarts, setCheckedCarts] = useState<CartType[]>([]);
-  const [couponProductNo, setCouponProductNo] = useState<{ [key: string]: number | null }>({});
+  const [checkedProductNos, setCartProductNos] = useState<number[]>([]);
+  const [couponedProductNo, setCouponedProductNo] = useState<CouponedProductNoType>({
+    rate: null,
+    amount: null,
+  });
 
   const { data: carts = [] } = useCartsQuery();
   const { data: recommendedProducts = [] } = useRecommendedProductsQuery(perPage);
@@ -28,48 +39,83 @@ export default function Order() {
   const { mutate: modifyCart } = useModifyCartMutation();
   const { mutateAsync: removeCart } = useRemoveCartMutation();
 
+  const checkedProduct = carts.filter((cart) => checkedProductNos.includes(cart.productNo));
+
   const newRecommendedProducts: NewRecommendedProductType[] = recommendedProducts.map((recommendedProduct) => ({
     ...recommendedProduct,
     isAddedCart: carts.some((cart) => cart.productNo === recommendedProduct.productNo),
   }));
 
-  const getIsChecked = (cart: CartType, checkedCarts: CartType[]) => {
-    return checkedCarts.some((checkedCart) => checkedCart.productNo === cart.productNo);
+  const getPaymentAmount = (
+    checkedProduct: CartType[],
+    couponedProductNo: CouponedProductNoType,
+    coupons: CouponType[],
+  ) => {
+    return checkedProduct.reduce((total, cart) => {
+      const { price, count, productNo } = cart;
+
+      let discount = 0;
+
+      const selectedCouponType = getKeys(couponedProductNo).find((key) => couponedProductNo[key] === productNo);
+      const selectedCoupon = coupons.find((coupon) => coupon.couponType === selectedCouponType);
+
+      if (selectedCoupon) {
+        if (selectedCoupon.couponType === 'rate') {
+          discount = (price * count * selectedCoupon.discountRate!) / 100;
+        } else if (selectedCoupon.couponType === 'amount') {
+          discount = selectedCoupon.discountAmount!;
+        }
+      }
+
+      return total + price * count - discount;
+    }, 0);
   };
 
-  const getIsAllChecked = (carts: CartType[], checkedCarts: CartType[]) => {
-    return checkedCarts.length === carts.length;
+  const getIsChecked = (cart: CartType, checkedProductNos: number[]) => {
+    return checkedProductNos.some((productNo) => productNo === cart.productNo);
   };
 
-  const handleAllChecked = (checked: boolean) => {
-    setCheckedCarts(checked ? carts : []);
+  const getIsAllChecked = (carts: CartType[], checkedProductNos: number[]) => {
+    return checkedProductNos.length === carts.length;
+  };
+
+  const handleAllChecked = (carts: CartType[], checked: boolean) => {
+    const cartProductNos = carts.map((cart) => cart.productNo);
+
+    setCartProductNos(checked ? cartProductNos : []);
   };
 
   const handleChecked = (cart: CartType, checked: boolean) => {
     const { productNo } = cart;
 
-    if (checked) setCheckedCarts((state) => [...state, cart]);
-    else setCheckedCarts((state) => state.filter((cart) => cart.productNo !== productNo));
+    if (checked) setCartProductNos((productNos) => [...productNos, cart.productNo]);
+    else setCartProductNos((productNos) => productNos.filter((num) => num !== productNo));
   };
 
   const handleModifyCartCount = (productNo: number, count: number) => {
     modifyCart({ productNo, count });
   };
 
-  const handleRemoveCart = async (productNo: number, couponType: CouponSortType) => {
-    await removeCart({ productNo });
+  const handleRemoveCart = async (productNo: number, couponType?: CouponSortType) => {
+    await removeCart({ productNo: [productNo] });
 
-    setCheckedCarts((state) => state.filter((cart) => cart.productNo !== productNo));
+    setCartProductNos((productNos) => productNos.filter((num) => num !== productNo));
 
-    if (couponType) setCouponProductNo((state) => ({ ...state, [couponType]: null }));
+    if (couponType) setCouponedProductNo((state) => ({ ...state, [couponType]: null }));
+  };
+
+  const handleRemoveSelectedCart = async (checkedCartProductNos: number[]) => {
+    await removeCart({ productNo: checkedCartProductNos });
+
+    setCartProductNos([]);
   };
 
   const handleUseCoupon = (couponType: CouponSortType, productNo: number) => {
     const anotherCouponType = couponType === 'rate' ? 'amount' : 'rate';
-    const anotherCouponProductNo = couponProductNo[anotherCouponType];
+    const anotherCouponProductNo = couponedProductNo[anotherCouponType];
     const anotherProductNo = anotherCouponProductNo === productNo ? null : anotherCouponProductNo;
 
-    setCouponProductNo((state) => ({ ...state, [couponType]: productNo, [anotherCouponType]: anotherProductNo }));
+    setCouponedProductNo((state) => ({ ...state, [couponType]: productNo, [anotherCouponType]: anotherProductNo }));
   };
 
   useEffect(() => {
@@ -97,12 +143,15 @@ export default function Order() {
           <>
             <AllCheckBox>
               <CheckBoxArea>
-                <CheckBox checked={getIsAllChecked(carts, checkedCarts)} onChange={handleAllChecked} />
+                <CheckBox
+                  checked={getIsAllChecked(carts, checkedProductNos)}
+                  onChange={(checked) => handleAllChecked(carts, checked)}
+                />
                 <Text color="primary" typography="text-m-medium">
-                  전체선택({checkedCarts.length}/{carts.length})
+                  전체선택({checkedProductNos.length}/{carts.length})
                 </Text>
               </CheckBoxArea>
-              <Button variant="tertiary" size="xSmall">
+              <Button variant="tertiary" size="xSmall" onClick={() => handleRemoveSelectedCart(checkedProductNos)}>
                 선택삭제
               </Button>
             </AllCheckBox>
@@ -113,8 +162,8 @@ export default function Order() {
                   key={cart.productNo}
                   cart={cart}
                   coupons={coupons}
-                  couponProductNo={couponProductNo}
-                  isChecked={getIsChecked(cart, checkedCarts)}
+                  couponProductNo={couponedProductNo}
+                  isChecked={getIsChecked(cart, checkedProductNos)}
                   onChecked={handleChecked}
                   onModifyCartCount={handleModifyCartCount}
                   onRemoveCart={handleRemoveCart}
@@ -127,12 +176,15 @@ export default function Order() {
           <NoData />
         )}
       </CartWrapper>
+
       <Divider />
+
       <Title>
         <Text typography="text-xxl-bold" color="primary">
           지원자님을 위한 추천상품
         </Text>
       </Title>
+
       <ProductWrapper>
         {newRecommendedProducts?.map((recommendedProduct, index, array) => (
           <RecommnedProduct
@@ -142,6 +194,11 @@ export default function Order() {
           />
         ))}
       </ProductWrapper>
+
+      <Payment
+        checkedCarts={checkedProduct}
+        totalPaymentAmount={getPaymentAmount(checkedProduct, couponedProductNo, coupons)}
+      />
     </CommonLayout>
   );
 }

@@ -17,7 +17,7 @@ interface CartProductProps {
   isChecked: boolean;
   onChecked: (cart: CartType, checked: boolean) => void;
   onModifyCartCount: (productNo: number, count: number) => void;
-  onRemoveCart: (productNo: number, couponType: CouponSortType) => Promise<void>;
+  onRemoveCart: (productNo: number, couponType?: CouponSortType) => Promise<void>;
   onUseCoupon: (couponType: CouponSortType, productNo: number) => void;
 }
 
@@ -33,26 +33,17 @@ const CartProduct = ({
 }: CartProductProps) => {
   const { productName, imageUrl, price, count, productNo, availableCoupon } = cart;
 
-  const [selectedCoupon, setSelectedCoupon] = useState<CouponSortType>('');
+  const [selectedCoupon, setSelectedCoupon] = useState<CouponSortType>();
 
   const selectItems = coupons.map((coupon) => ({
     value: coupon.couponType,
     label: coupon.couponTitle.replace('쿠폰', ''),
   }));
 
-  const getCurrentCoupon = (coupons: CouponType[], selectedCoupon: CouponSortType) => {
-    return coupons.find((item) => item.couponType === selectedCoupon);
-  };
+  const currentCoupon = coupons.find((item) => item.couponType === selectedCoupon);
 
-  const getCouponTitle = (coupons: CouponType[], selectedCoupon: CouponSortType) => {
-    const currentCoupon = getCurrentCoupon(coupons, selectedCoupon);
-
-    return currentCoupon?.couponTitle || '없음';
-  };
-
-  const getPrice = (price: number, selectedCoupon: CouponSortType, coupons: CouponType[], count: number) => {
+  const getPrice = (price: number, count: number, selectedCoupon?: CouponSortType, currentCoupon?: CouponType) => {
     const multipliedPrice = price * count;
-    const currentCoupon = getCurrentCoupon(coupons, selectedCoupon);
 
     const currentDiscountAmount = currentCoupon?.discountAmount || 0;
     const currentDiscountRate = currentCoupon?.discountRate || 0;
@@ -66,9 +57,9 @@ const CartProduct = ({
   };
 
   useEffect(() => {
-    if (couponProductNo.rate === productNo) setSelectedCoupon('rate');
-    else if (couponProductNo.amount === productNo) setSelectedCoupon('amount');
-    else setSelectedCoupon('');
+    if (couponProductNo.rate === productNo) setSelectedCoupon(CouponSortType.rate);
+    else if (couponProductNo.amount === productNo) setSelectedCoupon(CouponSortType.amount);
+    else setSelectedCoupon(undefined);
   }, [couponProductNo, productNo]);
 
   return (
@@ -87,14 +78,14 @@ const CartProduct = ({
 
       <Information>
         <ImageWrapper>
-          <Image src={imageUrl} fill alt={productName} />
+          <Image src={imageUrl} fill sizes="(min-width: 640px) 50vw, 100vw" priority alt={productName} />
         </ImageWrapper>
         <InformationWrapper>
           <Text typography="text-s-bold" color="primary">
             {formatNumberWithCommas(price)}원
           </Text>
           <Text typography="text-xs-medium" color="secondary">
-            할인적용 : {getCouponTitle(coupons, selectedCoupon)}
+            할인적용 : {currentCoupon?.couponTitle || '없음'}
           </Text>
           <Text typography="text-xs-medium" color="secondary">
             배송비 : 29CM 무료배송
@@ -104,7 +95,7 @@ const CartProduct = ({
 
       <Result>
         <Text typography="text-l-bold" color="primary">
-          {formatNumberWithCommas(getPrice(price, selectedCoupon, coupons, count))}원
+          {formatNumberWithCommas(getPrice(price, count, selectedCoupon, currentCoupon))}원
         </Text>
         <ButtonWrpper>
           {availableCoupon && (

@@ -70,6 +70,7 @@ const Options = styled.ul`
   left: 0;
   border: 1px solid ${vars.$semantic.color.border.line};
   box-sizing: border-box;
+  z-index: 9;
 `;
 
 const Option = styled.li`

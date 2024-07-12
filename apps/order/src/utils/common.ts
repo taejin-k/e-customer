@@ -7,3 +7,7 @@ export const omit = <T>(obj: T, keys: (keyof T)[]) => {
 
   return result;
 };
+
+export const getKeys = <T extends object>(object: T) => {
+  return Object.keys(object) as (keyof T)[];
+};
