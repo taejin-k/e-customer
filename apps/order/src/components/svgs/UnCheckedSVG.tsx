@@ -1,6 +1,6 @@
 import { SvgPropsType } from 'src/types/common';
 
-const UnChecked = ({ size, viewBox = size, color = '#fff' }: SvgPropsType) => {
+const UnCheckedSVG = ({ size, viewBox = size, color = '#fff' }: SvgPropsType) => {
   return (
     <svg
       width={size}
@@ -27,4 +27,4 @@ const UnChecked = ({ size, viewBox = size, color = '#fff' }: SvgPropsType) => {
   );
 };
 
-export default UnChecked;
+export default UnCheckedSVG;
