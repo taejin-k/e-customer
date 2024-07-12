@@ -11,7 +11,7 @@ const NoData = () => {
         <Text typography="text-m-bold" color="primary">
           장바구니에 담은 상품이 없어요
         </Text>
-        <Button variant="tertiary" size="small" onClick={() => router.back()}>
+        <Button variant="tertiary" size="small" onClick={() => router.push('http://localhost:3000/product/0')}>
           마음에 드는 상품 찾으러 가기
         </Button>
       </Wrapper>
