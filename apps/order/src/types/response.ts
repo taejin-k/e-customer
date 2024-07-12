@@ -1,4 +1,4 @@
-import { CartType, RecommendedProductType } from './order';
+import { CartType, CouponType, RecommendedProductType } from './order';
 
 export interface BaseResponse {
   errors: {
@@ -15,4 +15,8 @@ export interface CartResponse extends BaseResponse {
 
 export interface RecommendedProductsResponse extends BaseResponse {
   data: RecommendedProductType[];
+}
+
+export interface CouponsResponse extends BaseResponse {
+  data: CouponType[];
 }

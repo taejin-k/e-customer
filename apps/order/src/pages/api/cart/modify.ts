@@ -24,7 +24,7 @@ const handler = withFilter<CartTypes[]>(
   async (req, res) => {
     try {
       const cartList: CartTypes[] = await readJSON(DATABASE_PATH, []);
-      const { productNo, count } = JSON.parse(req.body) as BodyParams;
+      const { productNo, count } = req.body;
 
       const isExistsProduct = cartList.some((cart) => cart.productNo === productNo);
       if (!isExistsProduct) {

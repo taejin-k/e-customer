@@ -20,3 +20,12 @@ export interface NewRecommendedProductType extends RelatedProductType {
   recommendCode: number;
   isAddedCart: boolean;
 }
+
+export interface CouponType {
+  couponType: CouponSortType;
+  couponTitle: string;
+  discountRate?: number;
+  discountAmount?: number;
+}
+
+export type CouponSortType = 'rate' | 'amount' | '';
