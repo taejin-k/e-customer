@@ -37,59 +37,51 @@ export default function Home() {
         {bannderLoading ? (
           <BannerSkeleton />
         ) : (
-          !!banners.length && (
-            <BannerSwiper
-              id="banner-section"
-              pagination={{ type: 'progressbar' }}
-              modules={[Autoplay, Pagination, Navigation]}
-              autoplay={{ delay: 3000 }}
-              loop
-            >
-              {banners.map((banner) => (
-                <SwiperSlide key={banner.bannerNo}>
-                  <Banner banner={banner} />
-                </SwiperSlide>
-              ))}
-            </BannerSwiper>
-          )
+          <BannerSwiper
+            id="banner-section"
+            pagination={{ type: 'progressbar' }}
+            modules={[Autoplay, Pagination, Navigation]}
+            autoplay={{ delay: 3000 }}
+            loop
+          >
+            {banners.map((banner) => (
+              <SwiperSlide key={banner.bannerNo}>
+                <Banner banner={banner} />
+              </SwiperSlide>
+            ))}
+          </BannerSwiper>
         )}
-
         {gatesLoading ? (
           <GateSkeleton />
         ) : (
-          !!gatesList.length && (
-            <div>
-              {gatesList.map((gates) => (
-                <GateSwiper
-                  key={gates[0].gateId}
-                  id="gate-section"
-                  slidesPerView="auto"
-                  spaceBetween={8}
-                  grabCursor={true}
-                  freeMode={true}
-                  modules={[FreeMode]}
-                >
-                  {gates.map((gate) => (
-                    <GateSwiperSlide key={gate.gateId}>
-                      <Gate key={gate.gateId} gate={gate} icon={<RightArrowSVG size={12} />} />
-                    </GateSwiperSlide>
-                  ))}
-                </GateSwiper>
-              ))}
-            </div>
-          )
+          <div>
+            {gatesList.map((gates) => (
+              <GateSwiper
+                key={gates[0].gateId}
+                id="gate-section"
+                slidesPerView="auto"
+                spaceBetween={8}
+                grabCursor={true}
+                freeMode={true}
+                modules={[FreeMode]}
+              >
+                {gates.map((gate) => (
+                  <GateSwiperSlide key={gate.gateId}>
+                    <Gate key={gate.gateId} gate={gate} icon={<RightArrowSVG size={12} />} />
+                  </GateSwiperSlide>
+                ))}
+              </GateSwiper>
+            ))}
+          </div>
         )}
-
         {feedsLoading ? (
           <FeedSkeleton />
         ) : (
-          !!feeds.length && (
-            <RecommendedProduct>
-              {newFeeds.map((feed) => (
-                <Feed key={feed.feedNo} feed={feed} />
-              ))}
-            </RecommendedProduct>
-          )
+          <RecommendedProduct>
+            {newFeeds.map((feed) => (
+              <Feed key={feed.feedNo} feed={feed} />
+            ))}
+          </RecommendedProduct>
         )}
       </Container>
     </CommonLayout>
@@ -114,7 +106,7 @@ const BannerSwiper = styled(Swiper)`
 `;
 
 const GateSwiper = styled(Swiper)`
-  &:first-child {
+  &:first-of-type {
     margin-bottom: 10px;
   }
 `;
