@@ -1,8 +1,11 @@
 import { CommonLayout } from '@29cm/ui-emotion';
 import styled from '@emotion/styled';
+import Skeleton from 'src/components/commons/Skeleton';
 import Banner from 'src/components/pages/home/Banner';
 import Feed from 'src/components/pages/home/Feed';
 import Gate from 'src/components/pages/home/Gate';
+import FeedSkeleton from 'src/components/skeletons/FeedSkeleton';
+import GateSkeleton from 'src/components/skeletons/GateSkeleton';
 import RightArrowSVG from 'src/components/svgs/RightArrowSVG';
 import { useBannersQuery, useCartsQuery, useFeedsQuery, useGatesQuery } from 'src/quries/homeQuery';
 import { NewFeedType } from 'src/types/home';
@@ -15,10 +18,10 @@ import { Autoplay, FreeMode, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 export default function Home() {
-  const { data: banners = [] } = useBannersQuery();
-  const { data: gatesList = [] } = useGatesQuery();
+  const { data: banners = [], isLoading: bannderLoading } = useBannersQuery();
+  const { data: gatesList = [], isLoading: gatesLoading } = useGatesQuery();
   const { data: carts = [] } = useCartsQuery();
-  const { data: feeds = [] } = useFeedsQuery();
+  const { data: feeds = [], isLoading: feedsLoading } = useFeedsQuery();
 
   const newFeeds: NewFeedType[] = feeds.map((feed) => ({
     ...feed,
@@ -30,62 +33,84 @@ export default function Home() {
 
   return (
     <CommonLayout cartCount={carts?.length || 0}>
-      {!!banners.length && (
-        <BannerSwiper
-          id="banner-section"
-          pagination={{ type: 'progressbar' }}
-          modules={[Autoplay, Pagination, Navigation]}
-          autoplay={{ delay: 3000 }}
-          loop
-        >
-          {banners.map((banner) => (
-            <SwiperSlide key={banner.bannerNo}>
-              <Banner banner={banner} />
-            </SwiperSlide>
-          ))}
-        </BannerSwiper>
-      )}
-
-      {!!gatesList.length && (
-        <GateWrapper>
-          {gatesList.map((gates) => (
-            <GateSwiper
-              key={gates[0].gateId}
-              id="gate-section"
-              slidesPerView="auto"
-              spaceBetween={8}
-              grabCursor={true}
-              freeMode={true}
-              modules={[FreeMode]}
+      <Container>
+        {bannderLoading ? (
+          <BannerSkeleton />
+        ) : (
+          !!banners.length && (
+            <BannerSwiper
+              id="banner-section"
+              pagination={{ type: 'progressbar' }}
+              modules={[Autoplay, Pagination, Navigation]}
+              autoplay={{ delay: 3000 }}
+              loop
             >
-              {gates.map((gate) => (
-                <SwiperSlide key={gate.gateId}>
-                  <Gate key={gate.gateId} gate={gate} icon={<RightArrowSVG size={12} />} />
+              {banners.map((banner) => (
+                <SwiperSlide key={banner.bannerNo}>
+                  <Banner banner={banner} />
                 </SwiperSlide>
               ))}
-            </GateSwiper>
-          ))}
-        </GateWrapper>
-      )}
+            </BannerSwiper>
+          )
+        )}
 
-      {!!newFeeds.length && (
-        <RecommendedProduct>
-          {newFeeds.map((feed) => (
-            <Feed key={feed.feedNo} feed={feed} />
-          ))}
-        </RecommendedProduct>
-      )}
+        {gatesLoading ? (
+          <GateSkeleton />
+        ) : (
+          !!gatesList.length && (
+            <div>
+              {gatesList.map((gates) => (
+                <GateSwiper
+                  key={gates[0].gateId}
+                  id="gate-section"
+                  slidesPerView="auto"
+                  spaceBetween={8}
+                  grabCursor={true}
+                  freeMode={true}
+                  modules={[FreeMode]}
+                >
+                  {gates.map((gate) => (
+                    <GateSwiperSlide key={gate.gateId}>
+                      <Gate key={gate.gateId} gate={gate} icon={<RightArrowSVG size={12} />} />
+                    </GateSwiperSlide>
+                  ))}
+                </GateSwiper>
+              ))}
+            </div>
+          )
+        )}
+
+        {feedsLoading ? (
+          <FeedSkeleton />
+        ) : (
+          !!feeds.length && (
+            <RecommendedProduct>
+              {newFeeds.map((feed) => (
+                <Feed key={feed.feedNo} feed={feed} />
+              ))}
+            </RecommendedProduct>
+          )
+        )}
+      </Container>
     </CommonLayout>
   );
 }
 
-const BannerSwiper = styled(Swiper)`
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 60px;
+`;
+
+const BannerSkeleton = styled(Skeleton)`
   width: 100%;
   aspect-ratio: 0.75 / 1;
 `;
 
-const GateWrapper = styled.div`
-  padding: 24px 20px;
+const BannerSwiper = styled(Swiper)`
+  width: 100%;
+  aspect-ratio: 0.75 / 1;
 `;
 
 const GateSwiper = styled(Swiper)`
@@ -94,9 +119,19 @@ const GateSwiper = styled(Swiper)`
   }
 `;
 
+const GateSwiperSlide = styled(SwiperSlide)`
+  &:first-of-type {
+    margin-left: 20px;
+  }
+
+  &:last-of-type {
+    margin-right: 20px;
+  }
+`;
+
 const RecommendedProduct = styled.div`
   display: flex;
   flex-direction: column;
   gap: 60px;
-  padding: 0 20px 60px;
+  padding: 0 20px;
 `;
