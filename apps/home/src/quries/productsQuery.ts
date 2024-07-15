@@ -5,7 +5,7 @@ import { RecommendedProductsRequest } from 'src/types/request';
 import { QUERY_KEY_RECOMMENED_PRODUCT } from './queryKeys';
 
 export const useRecommendedProductsQuery = (request: RecommendedProductsRequest) => {
-  const { limit = 20 } = request;
+  const { limit } = request;
 
   const query = useInfiniteQuery({
     queryKey: QUERY_KEY_RECOMMENED_PRODUCT.RECOMMENDED_PRODUCT_LIST(request.recommendCode),

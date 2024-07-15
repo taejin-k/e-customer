@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import { useEffect, useRef } from 'react';
 import { GoBack } from 'src/components/commons/GoBack';
 import RecommnedProduct from 'src/components/pages/products/RecommnedProduct';
+import RecommendProductSkeleton from 'src/components/skeletons/RecommendProductSkeleton';
+import { LIMIT_RECOMMENDED_PRODUCTS } from 'src/constants/api';
 import { useCartsQuery } from 'src/quries/homeQuery';
 import { useRecommendedProductsQuery } from 'src/quries/productsQuery';
 import { NewRecommendedProductType } from 'src/types/products';
@@ -17,10 +19,12 @@ export default function Products() {
   const { data: carts = [] } = useCartsQuery();
   const {
     data: recommendedProducts = [],
+    isLoading,
     fetchNextPage,
     hasNextPage,
   } = useRecommendedProductsQuery({
     recommendCode: Number(recommendCode),
+    limit: LIMIT_RECOMMENDED_PRODUCTS,
   });
 
   const newRecommendedProducts: NewRecommendedProductType[] = recommendedProducts.map((recommendedProduct) => ({
@@ -56,6 +60,10 @@ export default function Products() {
             ref={index === array.length - 1 ? targetRef : null}
           />
         ))}
+        {(isLoading || hasNextPage) &&
+          [...Array(recommendedProducts.length < LIMIT_RECOMMENDED_PRODUCTS ? LIMIT_RECOMMENDED_PRODUCTS : 2)].map(
+            (_, index) => <RecommendProductSkeleton key={index} />,
+          )}
       </Container>
     </CommonLayout>
   );
