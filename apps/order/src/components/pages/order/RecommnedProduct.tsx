@@ -3,6 +3,7 @@ import { vars } from '@29cm/ui-tokens';
 import styled from '@emotion/styled';
 import { default as NextImage } from 'next/image';
 import { forwardRef } from 'react';
+import { NEXT_IMAGE_SIZES } from 'src/constants/image';
 import { useAddCartMutation, useRemoveCartMutation } from 'src/quries/orderQuery';
 import { NewRecommendedProductType } from 'src/types/order';
 import { omit } from 'src/utils/common';
@@ -31,7 +32,7 @@ const RecommnedProduct = forwardRef<HTMLDivElement, ProductProps>(({ recommended
   return (
     <Container ref={ref}>
       <ImageWrapper>
-        <Image src={imageUrl} fill sizes="(min-width: 640px) 50vw, 100vw" priority alt={productName} />
+        <Image src={imageUrl} fill sizes={NEXT_IMAGE_SIZES} priority alt={productName} />
         {availableCoupon && <Coupon>쿠폰</Coupon>}
       </ImageWrapper>
       <InfoWrapper>

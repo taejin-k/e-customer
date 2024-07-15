@@ -3,6 +3,7 @@ import { vars } from '@29cm/ui-tokens';
 import styled from '@emotion/styled';
 import { default as NextImage } from 'next/image';
 import { useRouter } from 'next/router';
+import { NEXT_IMAGE_SIZES } from 'src/constants/image';
 import { NewFeedType } from 'src/types/home';
 import { openNewWindow } from 'src/utils/url';
 import RelatedProduct from './RelatedProduct';
@@ -12,8 +13,8 @@ interface FeedProps {
 }
 
 const Feed = ({ feed }: FeedProps) => {
-  const router = useRouter();
   const { feedTitle, feedContents, feedLink, imageUrl, recommendCode, relatedProducts } = feed;
+  const router = useRouter();
 
   const getButtonLabel = (recommendCode: number) => {
     if (!recommendCode) return '모든 추천상품 보러가기';
@@ -28,7 +29,7 @@ const Feed = ({ feed }: FeedProps) => {
     <Container>
       <Wrapper>
         <ImageBox onClick={() => openNewWindow(feedLink)}>
-          <Image src={imageUrl} fill sizes="(min-width: 640px) 50vw, 100vw" priority alt={feedTitle} />
+          <Image src={imageUrl} fill sizes={NEXT_IMAGE_SIZES} priority alt={feedTitle} />
         </ImageBox>
         <ContentBox>
           <TextArea>

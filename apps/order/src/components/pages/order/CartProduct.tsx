@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { default as NextImage } from 'next/image';
 import { useEffect, useState } from 'react';
 import CloseSVG from 'src/components/svgs/CloseSVG';
+import { NEXT_IMAGE_SIZES } from 'src/constants/image';
 import { CartType, CouponSortType, CouponType } from 'src/types/order';
 import { formatNumberWithCommas } from 'src/utils/number';
 import CheckBox from './CheckBox';
@@ -15,6 +16,7 @@ interface CartProductProps {
   coupons: CouponType[];
   couponProductNo: { [key: string]: number | null };
   isChecked: boolean;
+  getLastPrice: (price: number, count: number, selectedCoupon?: CouponSortType, currentCoupon?: CouponType) => number;
   onChecked: (cart: CartType, checked: boolean) => void;
   onModifyCartCount: (productNo: number, count: number) => void;
   onRemoveCart: (productNo: number, couponType?: CouponSortType) => Promise<void>;
@@ -26,6 +28,7 @@ const CartProduct = ({
   coupons,
   couponProductNo,
   isChecked,
+  getLastPrice,
   onChecked,
   onModifyCartCount,
   onRemoveCart,
@@ -41,20 +44,6 @@ const CartProduct = ({
   }));
 
   const currentCoupon = coupons.find((item) => item.couponType === selectedCoupon);
-
-  const getPrice = (price: number, count: number, selectedCoupon?: CouponSortType, currentCoupon?: CouponType) => {
-    const multipliedPrice = price * count;
-
-    const currentDiscountAmount = currentCoupon?.discountAmount || 0;
-    const currentDiscountRate = currentCoupon?.discountRate || 0;
-
-    const amountDiscount = currentDiscountAmount;
-    const rateDiscount = multipliedPrice * 0.01 * currentDiscountRate;
-
-    const discount = selectedCoupon === 'amount' ? amountDiscount : selectedCoupon === 'rate' ? rateDiscount : 0;
-
-    return multipliedPrice - discount;
-  };
 
   useEffect(() => {
     if (couponProductNo.rate === productNo) setSelectedCoupon(CouponSortType.rate);
@@ -78,7 +67,7 @@ const CartProduct = ({
 
       <Information>
         <ImageWrapper>
-          <Image src={imageUrl} fill sizes="(min-width: 640px) 50vw, 100vw" priority alt={productName} />
+          <Image src={imageUrl} fill sizes={NEXT_IMAGE_SIZES} priority alt={productName} />
         </ImageWrapper>
         <InformationWrapper>
           <Text typography="text-s-bold" color="primary">
@@ -95,7 +84,7 @@ const CartProduct = ({
 
       <Result>
         <Text typography="text-l-bold" color="primary">
-          {formatNumberWithCommas(getPrice(price, count, selectedCoupon, currentCoupon))}원
+          {formatNumberWithCommas(getLastPrice(price, count, selectedCoupon, currentCoupon))}원
         </Text>
         <ButtonWrpper>
           {availableCoupon && (

@@ -46,6 +46,20 @@ export default function Order() {
     isAddedCart: carts.some((cart) => cart.productNo === recommendedProduct.productNo),
   }));
 
+  const getLastPrice = (price: number, count: number, selectedCoupon?: CouponSortType, currentCoupon?: CouponType) => {
+    const multipliedPrice = price * count;
+
+    const currentDiscountAmount = currentCoupon?.discountAmount || 0;
+    const currentDiscountRate = currentCoupon?.discountRate || 0;
+
+    const amountDiscount = currentDiscountAmount;
+    const rateDiscount = multipliedPrice * 0.01 * currentDiscountRate;
+
+    const discount = selectedCoupon === 'amount' ? amountDiscount : selectedCoupon === 'rate' ? rateDiscount : 0;
+
+    return multipliedPrice - discount;
+  };
+
   const getPaymentAmount = (
     checkedProduct: CartType[],
     couponedProductNo: CouponedProductNoType,
@@ -54,20 +68,12 @@ export default function Order() {
     return checkedProduct.reduce((total, cart) => {
       const { price, count, productNo } = cart;
 
-      let discount = 0;
+      const selectedCoupon = getKeys(couponedProductNo).find((key) => couponedProductNo[key] === productNo);
+      const currentCoupon = coupons.find((coupon) => coupon.couponType === selectedCoupon);
 
-      const selectedCouponType = getKeys(couponedProductNo).find((key) => couponedProductNo[key] === productNo);
-      const selectedCoupon = coupons.find((coupon) => coupon.couponType === selectedCouponType);
+      const lastPrice = getLastPrice(price, count, selectedCoupon, currentCoupon);
 
-      if (selectedCoupon) {
-        if (selectedCoupon.couponType === 'rate') {
-          discount = (price * count * selectedCoupon.discountRate!) / 100;
-        } else if (selectedCoupon.couponType === 'amount') {
-          discount = selectedCoupon.discountAmount!;
-        }
-      }
-
-      return total + price * count - discount;
+      return total + lastPrice;
     }, 0);
   };
 
@@ -79,17 +85,17 @@ export default function Order() {
     return checkedProductNos.length === carts.length;
   };
 
-  const handleAllChecked = (carts: CartType[], checked: boolean) => {
-    const cartProductNos = carts.map((cart) => cart.productNo);
-
-    setCartProductNos(checked ? cartProductNos : []);
-  };
-
   const handleChecked = (cart: CartType, checked: boolean) => {
     const { productNo } = cart;
 
     if (checked) setCartProductNos((productNos) => [...productNos, cart.productNo]);
     else setCartProductNos((productNos) => productNos.filter((num) => num !== productNo));
+  };
+
+  const handleAllChecked = (carts: CartType[], checked: boolean) => {
+    const cartProductNos = carts.map((cart) => cart.productNo);
+
+    setCartProductNos(checked ? cartProductNos : []);
   };
 
   const handleModifyCartCount = (productNo: number, count: number) => {
@@ -164,6 +170,7 @@ export default function Order() {
                   coupons={coupons}
                   couponProductNo={couponedProductNo}
                   isChecked={getIsChecked(cart, checkedProductNos)}
+                  getLastPrice={getLastPrice}
                   onChecked={handleChecked}
                   onModifyCartCount={handleModifyCartCount}
                   onRemoveCart={handleRemoveCart}

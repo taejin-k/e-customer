@@ -33,6 +33,7 @@ const Container = styled.div<{ imageUrl: string }>`
   background-position: center;
   background-size: cover;
   background-repeat: none;
+  cursor: pointer;
 
   ${(props) => ({
     backgroundImage: `url(${props.imageUrl})`,
