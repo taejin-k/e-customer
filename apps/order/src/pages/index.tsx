@@ -7,6 +7,8 @@ import CheckBox from 'src/components/pages/order/CheckBox';
 import NoData from 'src/components/pages/order/NoData';
 import Payment from 'src/components/pages/order/Payment';
 import RecommnedProduct from 'src/components/pages/order/RecommnedProduct';
+import RecommendProductSkeleton from 'src/components/skeletons/RecommendProductSkeleton';
+import { LIMIT_RECOMMENDED_PRODUCTS } from 'src/constants/api';
 import {
   useCartsQuery,
   useCouponsQuery,
@@ -33,8 +35,9 @@ export default function Order() {
     amount: null,
   });
 
-  const { data: carts = [] } = useCartsQuery();
-  const { data: recommendedProducts = [] } = useRecommendedProductsQuery(perPage);
+  const { data: carts = [], isLoading: cartsLoading } = useCartsQuery();
+  const { data: recommendedProducts = [], isLoading: recommendedProductsLoading } =
+    useRecommendedProductsQuery(perPage);
   const { data: coupons = [] } = useCouponsQuery();
   const { mutate: modifyCart } = useModifyCartMutation();
   const { mutateAsync: removeCart } = useRemoveCartMutation();
@@ -145,43 +148,44 @@ export default function Order() {
   return (
     <CommonLayout prefix={<GoBack size={22} />} title="장바구니">
       <CartWrapper>
-        {carts.length ? (
-          <>
-            <AllCheckBox>
-              <CheckBoxArea>
-                <CheckBox
-                  checked={getIsAllChecked(carts, checkedProductNos)}
-                  onChange={(checked) => handleAllChecked(carts, checked)}
-                />
-                <Text color="primary" typography="text-m-medium">
-                  전체선택({checkedProductNos.length}/{carts.length})
-                </Text>
-              </CheckBoxArea>
-              <Button variant="tertiary" size="xSmall" onClick={() => handleRemoveSelectedCart(checkedProductNos)}>
-                선택삭제
-              </Button>
-            </AllCheckBox>
+        {!cartsLoading &&
+          (carts.length ? (
+            <>
+              <AllCheckBox>
+                <CheckBoxArea>
+                  <CheckBox
+                    checked={getIsAllChecked(carts, checkedProductNos)}
+                    onChange={(checked) => handleAllChecked(carts, checked)}
+                  />
+                  <Text color="primary" typography="text-m-medium">
+                    전체선택({checkedProductNos.length}/{carts.length})
+                  </Text>
+                </CheckBoxArea>
+                <Button variant="tertiary" size="xSmall" onClick={() => handleRemoveSelectedCart(checkedProductNos)}>
+                  선택삭제
+                </Button>
+              </AllCheckBox>
 
-            <CartProductBox>
-              {carts.map((cart) => (
-                <CartProduct
-                  key={cart.productNo}
-                  cart={cart}
-                  coupons={coupons}
-                  couponProductNo={couponedProductNo}
-                  isChecked={getIsChecked(cart, checkedProductNos)}
-                  getLastPrice={getLastPrice}
-                  onChecked={handleChecked}
-                  onModifyCartCount={handleModifyCartCount}
-                  onRemoveCart={handleRemoveCart}
-                  onUseCoupon={handleUseCoupon}
-                />
-              ))}
-            </CartProductBox>
-          </>
-        ) : (
-          <NoData />
-        )}
+              <CartProductBox>
+                {carts.map((cart) => (
+                  <CartProduct
+                    key={cart.productNo}
+                    cart={cart}
+                    coupons={coupons}
+                    couponProductNo={couponedProductNo}
+                    isChecked={getIsChecked(cart, checkedProductNos)}
+                    getLastPrice={getLastPrice}
+                    onChecked={handleChecked}
+                    onModifyCartCount={handleModifyCartCount}
+                    onRemoveCart={handleRemoveCart}
+                    onUseCoupon={handleUseCoupon}
+                  />
+                ))}
+              </CartProductBox>
+            </>
+          ) : (
+            <NoData />
+          ))}
       </CartWrapper>
 
       <Divider />
@@ -200,6 +204,8 @@ export default function Order() {
             ref={index === array.length - 1 ? targetRef : null}
           />
         ))}
+        {recommendedProductsLoading &&
+          [...Array(LIMIT_RECOMMENDED_PRODUCTS)].map((_, index) => <RecommendProductSkeleton key={index} />)}
       </ProductWrapper>
 
       <Payment
@@ -214,6 +220,7 @@ const CartWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 20px 12px;
+  transition: 0.5s;
   min-height: 189px;
 `;
 
