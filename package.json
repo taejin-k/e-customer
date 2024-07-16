@@ -79,5 +79,8 @@
     "react": "*",
     "react-dom": "*",
     "typescript": "*"
+  },
+  "dependencies": {
+    "sharp": "^0.33.4"
   }
 }
