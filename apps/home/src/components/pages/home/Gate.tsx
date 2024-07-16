@@ -1,7 +1,7 @@
 import { Text } from '@29cm/ui-emotion';
 import { vars } from '@29cm/ui-tokens';
 import styled from '@emotion/styled';
-import { default as NextImage } from 'next/image';
+import CustomImage from 'src/components/commons/CustomImage';
 import { GateType } from 'src/types/home';
 import { openNewWindow } from 'src/utils/url';
 
@@ -36,6 +36,6 @@ const Container = styled.div`
   padding: 4px 16px 4px 4px;
 `;
 
-const Image = styled(NextImage)`
+const Image = styled(CustomImage)`
   border-radius: 9999px;
 `;

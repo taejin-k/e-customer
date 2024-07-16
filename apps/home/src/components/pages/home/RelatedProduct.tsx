@@ -1,7 +1,7 @@
 import { CartIcon, Text } from '@29cm/ui-emotion';
 import { vars } from '@29cm/ui-tokens';
 import styled from '@emotion/styled';
-import { default as NextImage } from 'next/image';
+import CustomImage from 'src/components/commons/CustomImage';
 import { useAddCartMutation, useRemoveCartMutation } from 'src/quries/homeQuery';
 import { NewRelatedProductType } from 'src/types/home';
 import { omit } from 'src/utils/common';
@@ -52,7 +52,7 @@ const Container = styled.div`
   border-top: 1px solid ${vars.$scale.color.gray200};
 `;
 
-const Image = styled(NextImage)`
+const Image = styled(CustomImage)`
   width: 60px;
   height: 60px;
   border-radius: 2px;

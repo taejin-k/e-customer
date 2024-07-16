@@ -1,8 +1,8 @@
 import { Button, Text } from '@29cm/ui-emotion';
 import { vars } from '@29cm/ui-tokens';
 import styled from '@emotion/styled';
-import { default as NextImage } from 'next/image';
 import { useRouter } from 'next/router';
+import CustomImage from 'src/components/commons/CustomImage';
 import { NEXT_IMAGE_SIZES } from 'src/constants/image';
 import { NewFeedType } from 'src/types/home';
 import { openNewWindow } from 'src/utils/url';
@@ -83,7 +83,7 @@ const ImageBox = styled.div`
   cursor: pointer;
 `;
 
-const Image = styled(NextImage)`
+const Image = styled(CustomImage)`
   object-fit: cover;
 `;
 

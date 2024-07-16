@@ -1,8 +1,8 @@
 import { CartIcon, Text } from '@29cm/ui-emotion';
 import { vars } from '@29cm/ui-tokens';
 import styled from '@emotion/styled';
-import { default as NextImage } from 'next/image';
-import { forwardRef } from 'react';
+import { forwardRef, useState } from 'react';
+import CustomImage from 'src/components/commons/CustomImage';
 import { NEXT_IMAGE_SIZES } from 'src/constants/image';
 import { useAddCartMutation, useRemoveCartMutation } from 'src/quries/homeQuery';
 import { NewRecommendedProductType } from 'src/types/products';
@@ -15,6 +15,7 @@ interface ProductProps {
 
 const RecommnedProduct = forwardRef<HTMLDivElement, ProductProps>(({ recommendedProduct }, ref) => {
   const { imageUrl, availableCoupon, productName, price, isAddedCart } = recommendedProduct;
+  const [isError, setIsError] = useState(false);
 
   const { mutate: addCart, isPending: addPending } = useAddCartMutation();
   const { mutate: removeCart, isPending: removePending } = useRemoveCartMutation();
@@ -66,7 +67,7 @@ const ImageWrapper = styled.div`
   position: relative;
 `;
 
-const Image = styled(NextImage)`
+const Image = styled(CustomImage)`
   object-fit: cover;
 `;
 
