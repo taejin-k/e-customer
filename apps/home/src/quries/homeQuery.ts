@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { addCartAPI, getBannersAPI, getCartsAPI, getFeedsAPI, getGatesAPI, removeCartAPI } from 'src/apis/homeAPI';
+import { CartType } from 'src/types/home';
 import { AddCartRequest, RemoveCartRequest } from 'src/types/request';
 import { QUERY_KEY_BANNER, QUERY_KEY_CART, QUERY_KEY_FEED, QUERY_KEY_GATE } from './queryKeys';
 
@@ -45,19 +46,18 @@ export const useAddCartMutation = () => {
   const mutation = useMutation({
     mutationFn: (request: AddCartRequest) => addCartAPI(request),
     onMutate: async (newData) => {
-      await queryClient.cancelQueries(QUERY_KEY_CART.CART_LIST);
+      await queryClient.cancelQueries({ queryKey: QUERY_KEY_CART.CART_LIST });
 
       const previousData = queryClient.getQueryData(QUERY_KEY_CART.CART_LIST);
 
-      queryClient.setQueryData(QUERY_KEY_CART.CART_LIST, (oldDatas) => [...oldDatas, newData]);
+      queryClient.setQueryData(QUERY_KEY_CART.CART_LIST, (oldDatas: CartType[]) => [...oldDatas, newData]);
 
       return { previousData };
     },
     onError: (err, newData, context) => {
-      queryClient.setQueryData(QUERY_KEY_CART.CART_LIST, context.previousData);
-    },
-    onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: QUERY_KEY_CART.CART_LIST });
+      if (context) {
+        queryClient.setQueryData(QUERY_KEY_CART.CART_LIST, context.previousData);
+      }
     },
   });
 
@@ -70,21 +70,20 @@ export const useRemoveCartMutation = () => {
   const mutation = useMutation({
     mutationFn: (request: RemoveCartRequest) => removeCartAPI(request),
     onMutate: async (request) => {
-      await queryClient.cancelQueries(QUERY_KEY_CART.CART_LIST);
+      await queryClient.cancelQueries({ queryKey: QUERY_KEY_CART.CART_LIST });
 
       const previousData = queryClient.getQueryData(QUERY_KEY_CART.CART_LIST);
 
-      queryClient.setQueryData(QUERY_KEY_CART.CART_LIST, (oldDatas) =>
+      queryClient.setQueryData(QUERY_KEY_CART.CART_LIST, (oldDatas: CartType[]) =>
         oldDatas.filter((data) => !request.productNo.includes(data.productNo)),
       );
 
       return { previousData };
     },
     onError: (err, removedItem, context) => {
-      queryClient.setQueryData(QUERY_KEY_CART.CART_LIST, context.previousData);
-    },
-    onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: QUERY_KEY_CART.CART_LIST });
+      if (context) {
+        queryClient.setQueryData(QUERY_KEY_CART.CART_LIST, context.previousData);
+      }
     },
   });
 

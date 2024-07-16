@@ -214,7 +214,7 @@ const CartWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 20px 12px;
-  min-height: 188px;
+  min-height: 189px;
 `;
 
 const AllCheckBox = styled.div`

@@ -7,6 +7,7 @@ import {
   modifyCartAPI,
   removeCartAPI,
 } from 'src/apis/orderAPI';
+import { CartType } from 'src/types/order';
 import { AddCartRequest, ModifyCartRequest, RemoveCartRequest } from 'src/types/request';
 import { QUERY_KEY_CART, QUERY_KEY_COUPON, QUERY_KEY_RECOMMENED_PRODUCT } from './queryKeys';
 
@@ -24,7 +25,20 @@ export const useAddCartMutation = () => {
 
   const mutation = useMutation({
     mutationFn: (request: AddCartRequest) => addCartAPI(request),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: QUERY_KEY_CART.CART_LIST }),
+    onMutate: async (newData) => {
+      await queryClient.cancelQueries({ queryKey: QUERY_KEY_CART.CART_LIST });
+
+      const previousData = queryClient.getQueryData(QUERY_KEY_CART.CART_LIST);
+
+      queryClient.setQueryData(QUERY_KEY_CART.CART_LIST, (oldDatas: CartType[]) => [...oldDatas, newData]);
+
+      return { previousData };
+    },
+    onError: (err, newData, context) => {
+      if (context) {
+        queryClient.setQueryData(QUERY_KEY_CART.CART_LIST, context.previousData);
+      }
+    },
   });
 
   return mutation;
@@ -35,7 +49,22 @@ export const useRemoveCartMutation = () => {
 
   const mutation = useMutation({
     mutationFn: (request: RemoveCartRequest) => removeCartAPI(request),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: QUERY_KEY_CART.CART_LIST }),
+    onMutate: async (request) => {
+      await queryClient.cancelQueries({ queryKey: QUERY_KEY_CART.CART_LIST });
+
+      const previousData = queryClient.getQueryData(QUERY_KEY_CART.CART_LIST);
+
+      queryClient.setQueryData(QUERY_KEY_CART.CART_LIST, (oldDatas: CartType[]) =>
+        oldDatas.filter((data) => !request.productNo.includes(data.productNo)),
+      );
+
+      return { previousData };
+    },
+    onError: (err, removedItem, context) => {
+      if (context) {
+        queryClient.setQueryData(QUERY_KEY_CART.CART_LIST, context.previousData);
+      }
+    },
   });
 
   return mutation;
@@ -46,7 +75,22 @@ export const useModifyCartMutation = () => {
 
   const mutation = useMutation({
     mutationFn: (request: ModifyCartRequest) => modifyCartAPI(request),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: QUERY_KEY_CART.CART_LIST }),
+    onMutate: async (request) => {
+      await queryClient.cancelQueries({ queryKey: QUERY_KEY_CART.CART_LIST });
+
+      const previousData = queryClient.getQueryData(QUERY_KEY_CART.CART_LIST);
+
+      queryClient.setQueryData(QUERY_KEY_CART.CART_LIST, (oldDatas: CartType[]) =>
+        oldDatas.map((data) => (data.productNo === request.productNo ? { ...data, count: request.count } : data)),
+      );
+
+      return { previousData };
+    },
+    onError: (err, removedItem, context) => {
+      if (context) {
+        queryClient.setQueryData(QUERY_KEY_CART.CART_LIST, context.previousData);
+      }
+    },
   });
 
   return mutation;
