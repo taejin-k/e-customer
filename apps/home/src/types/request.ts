@@ -9,6 +9,6 @@ export interface RemoveCartRequest {
 export interface RecommendedProductsRequest {
   recommendCode: number;
   offset?: number;
-  limit?: number;
+  limit: number;
   sort?: 'ASC' | 'DESC';
 }

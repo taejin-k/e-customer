@@ -37,7 +37,11 @@ export const useAddCartMutation = () => {
     onError: (err, newData, context) => {
       if (context) {
         queryClient.setQueryData(QUERY_KEY_CART.CART_LIST, context.previousData);
+        alert('카트를 추가하는 중 오류가 발생했습니다.');
       }
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: QUERY_KEY_CART.CART_LIST });
     },
   });
 
@@ -63,7 +67,11 @@ export const useRemoveCartMutation = () => {
     onError: (err, removedItem, context) => {
       if (context) {
         queryClient.setQueryData(QUERY_KEY_CART.CART_LIST, context.previousData);
+        alert('카트를 삭제하는 중 오류가 발생했습니다.');
       }
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: QUERY_KEY_CART.CART_LIST });
     },
   });
 
@@ -89,7 +97,11 @@ export const useModifyCartMutation = () => {
     onError: (err, removedItem, context) => {
       if (context) {
         queryClient.setQueryData(QUERY_KEY_CART.CART_LIST, context.previousData);
+        alert('카트를 수정하는 중 오류가 발생했습니다.');
       }
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: QUERY_KEY_CART.CART_LIST });
     },
   });
 

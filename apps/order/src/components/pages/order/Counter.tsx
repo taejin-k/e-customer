@@ -20,11 +20,14 @@ export const Counter = ({ count, onModifyCartCount }: CounterProps) => {
   return (
     <Container>
       <Button onClick={() => handleDecrement(count)}>
-        <MinusSVG size={14} />
+        <MinusSVG
+          size={14}
+          color={count > 1 ? vars.$semantic.color.text.primary : vars.$semantic.color.text.disabled}
+        />
       </Button>
       <Count>{count}</Count>
       <Button onClick={() => handleIncrement(count)}>
-        <PlusSVG size={14} />
+        <PlusSVG size={14} color={count < 5 ? vars.$semantic.color.text.primary : vars.$semantic.color.text.disabled} />
       </Button>
     </Container>
   );

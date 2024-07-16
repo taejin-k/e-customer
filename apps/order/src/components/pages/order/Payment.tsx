@@ -18,6 +18,11 @@ const Payment = ({ checkedCarts, totalPaymentAmount }: PaymentProps) => {
 
   const totalOrderAmount = checkedCarts.reduce((acc, cur) => acc + cur.price * cur.count, 0);
 
+  const handlePayment = (cartsLength: number, isBillBoxVisible: boolean) => {
+    if (isBillBoxVisible) alert('결제가 완료되었습니다.');
+    else cartsLength && setIsBillBoxVisible(true);
+  };
+
   return (
     <>
       <Wrapper>
@@ -75,7 +80,7 @@ const Payment = ({ checkedCarts, totalPaymentAmount }: PaymentProps) => {
           </Total>
           <PaymentButton
             isEmpty={!checkedCarts.length}
-            onClick={() => checkedCarts.length && setIsBillBoxVisible(true)}
+            onClick={() => handlePayment(checkedCarts.length, isBillBoxVisible)}
           >
             결제하기
           </PaymentButton>

@@ -12,7 +12,7 @@ export const GoBack = ({ size, color }: GoBackProps) => {
   const router = useRouter();
 
   return (
-    <Container size={size} onClick={() => router.back()}>
+    <Container size={size} onClick={() => router.push('http://localhost:3000')}>
       <ChevronLeftSVG size={size} color={color} />
     </Container>
   );

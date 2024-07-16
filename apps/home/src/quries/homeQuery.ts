@@ -1,35 +1,8 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { addCartAPI, getBannersAPI, getCartsAPI, getFeedsAPI, getGatesAPI, removeCartAPI } from 'src/apis/homeAPI';
+import { addCartAPI, getCartsAPI, removeCartAPI } from 'src/apis/homeAPI';
 import { CartType } from 'src/types/home';
 import { AddCartRequest, RemoveCartRequest } from 'src/types/request';
-import { QUERY_KEY_BANNER, QUERY_KEY_CART, QUERY_KEY_FEED, QUERY_KEY_GATE } from './queryKeys';
-
-export const useBannersQuery = () => {
-  const query = useQuery({
-    queryKey: QUERY_KEY_BANNER.BANNER_LIST,
-    queryFn: () => getBannersAPI(),
-  });
-
-  return query;
-};
-
-export const useGatesQuery = () => {
-  const query = useQuery({
-    queryKey: QUERY_KEY_GATE.GATE_LIST,
-    queryFn: () => getGatesAPI(),
-  });
-
-  return query;
-};
-
-export const useFeedsQuery = () => {
-  const query = useQuery({
-    queryKey: QUERY_KEY_FEED.FEED_LIST,
-    queryFn: () => getFeedsAPI(),
-  });
-
-  return query;
-};
+import { QUERY_KEY_CART } from './queryKeys';
 
 export const useCartsQuery = () => {
   const query = useQuery({
@@ -57,7 +30,11 @@ export const useAddCartMutation = () => {
     onError: (err, newData, context) => {
       if (context) {
         queryClient.setQueryData(QUERY_KEY_CART.CART_LIST, context.previousData);
+        alert('카트를 추가하는 중 오류가 발생했습니다.');
       }
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: QUERY_KEY_CART.CART_LIST });
     },
   });
 
@@ -83,7 +60,11 @@ export const useRemoveCartMutation = () => {
     onError: (err, removedItem, context) => {
       if (context) {
         queryClient.setQueryData(QUERY_KEY_CART.CART_LIST, context.previousData);
+        alert('카트를 삭제하는 중 오류가 발생했습니다.');
       }
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: QUERY_KEY_CART.CART_LIST });
     },
   });
 
