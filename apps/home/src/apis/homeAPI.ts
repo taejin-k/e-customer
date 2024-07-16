@@ -1,26 +1,27 @@
+import { BASE_URL } from 'src/constants/api';
 import { AddCartRequest, RemoveCartRequest } from 'src/types/request';
 import { BannersResponse, CartResponse, FeedsResponse, GatesResponse } from 'src/types/response';
 import axiosInstance from './axiosInstance';
 
 export const getBannersAPI = async () => {
-  const response = await axiosInstance.get<BannersResponse>('/api/banners');
+  const res = await fetch(`${BASE_URL}/api/banners`);
+  const data: BannersResponse = await res.json();
 
-  if (!response.data.errors) return response.data.data;
-  else throw response.data.code;
+  return data.data;
 };
 
 export const getGatesAPI = async () => {
-  const response = await axiosInstance.get<GatesResponse>('/api/gates');
+  const res = await fetch(`${BASE_URL}/api/gates`);
+  const data: GatesResponse = await res.json();
 
-  if (!response.data.errors) return response.data.data;
-  else throw response.data.code;
+  return data.data;
 };
 
 export const getFeedsAPI = async () => {
-  const response = await axiosInstance.get<FeedsResponse>('/api/feeds');
+  const res = await fetch(`${BASE_URL}/api/feeds`);
+  const data: FeedsResponse = await res.json();
 
-  if (!response.data.errors) return response.data.data;
-  else throw response.data.code;
+  return data.data;
 };
 
 export const getCartsAPI = async () => {
