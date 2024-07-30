@@ -1,4 +1,4 @@
-import { CommonLayout } from '@29cm/ui-emotion';
+import { CommonLayout } from '@eCustomer/ui-emotion';
 import styled from '@emotion/styled';
 import { getBannersAPI, getFeedsAPI, getGatesAPI } from 'src/apis/homeAPI';
 import Banner from 'src/components/pages/home/Banner';

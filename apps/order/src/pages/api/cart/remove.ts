@@ -6,7 +6,7 @@ import {
   delay,
   readJSON,
   withFilter,
-} from '@29cm/utils-common';
+} from '@eCustomer/utils-common';
 import fsPromises from 'fs/promises';
 import path from 'path';
 

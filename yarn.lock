@@ -5,9 +5,9 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"@29cm/config-storybook@workspace:*, @29cm/config-storybook@workspace:packages/config/storybook":
+"@eCustomer/config-storybook@workspace:*, @eCustomer/config-storybook@workspace:packages/config/storybook":
   version: 0.0.0-use.local
-  resolution: "@29cm/config-storybook@workspace:packages/config/storybook"
+  resolution: "@eCustomer/config-storybook@workspace:packages/config/storybook"
   dependencies:
     "@emotion/react": "npm:*"
     "@emotion/styled": "npm:*"
@@ -24,15 +24,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@29cm/home@workspace:apps/home":
+"@eCustomer/home@workspace:apps/home":
   version: 0.0.0-use.local
-  resolution: "@29cm/home@workspace:apps/home"
+  resolution: "@eCustomer/home@workspace:apps/home"
   dependencies:
-    "@29cm/mocks-data": "workspace:*"
-    "@29cm/ui-emotion": "workspace:*"
-    "@29cm/ui-reset": "workspace:*"
-    "@29cm/ui-tokens": "workspace:*"
-    "@29cm/utils-common": "workspace:*"
+    "@eCustomer/mocks-data": "workspace:*"
+    "@eCustomer/ui-emotion": "workspace:*"
+    "@eCustomer/ui-reset": "workspace:*"
+    "@eCustomer/ui-tokens": "workspace:*"
+    "@eCustomer/utils-common": "workspace:*"
     "@emotion/react": "npm:*"
     "@emotion/styled": "npm:*"
     "@tanstack/react-query": "npm:*"
@@ -48,21 +48,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@29cm/mocks-data@workspace:*, @29cm/mocks-data@workspace:packages/mocks/data":
+"@eCustomer/mocks-data@workspace:*, @eCustomer/mocks-data@workspace:packages/mocks/data":
   version: 0.0.0-use.local
-  resolution: "@29cm/mocks-data@workspace:packages/mocks/data"
+  resolution: "@eCustomer/mocks-data@workspace:packages/mocks/data"
   languageName: unknown
   linkType: soft
 
-"@29cm/order@workspace:apps/order":
+"@eCustomer/order@workspace:apps/order":
   version: 0.0.0-use.local
-  resolution: "@29cm/order@workspace:apps/order"
+  resolution: "@eCustomer/order@workspace:apps/order"
   dependencies:
-    "@29cm/mocks-data": "workspace:*"
-    "@29cm/ui-emotion": "workspace:*"
-    "@29cm/ui-reset": "workspace:*"
-    "@29cm/ui-tokens": "workspace:*"
-    "@29cm/utils-common": "workspace:*"
+    "@eCustomer/mocks-data": "workspace:*"
+    "@eCustomer/ui-emotion": "workspace:*"
+    "@eCustomer/ui-reset": "workspace:*"
+    "@eCustomer/ui-tokens": "workspace:*"
+    "@eCustomer/utils-common": "workspace:*"
     "@emotion/react": "npm:*"
     "@emotion/styled": "npm:*"
     "@tanstack/react-query": "npm:*"
@@ -78,9 +78,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@29cm/root@workspace:.":
+"@eCustomer/root@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@29cm/root@workspace:."
+  resolution: "@eCustomer/root@workspace:."
   dependencies:
     "@types/node": "npm:*"
     "@types/react": "npm:*"
@@ -107,13 +107,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@29cm/ui-emotion@workspace:*, @29cm/ui-emotion@workspace:packages/ui/emotion":
+"@eCustomer/ui-emotion@workspace:*, @eCustomer/ui-emotion@workspace:packages/ui/emotion":
   version: 0.0.0-use.local
-  resolution: "@29cm/ui-emotion@workspace:packages/ui/emotion"
+  resolution: "@eCustomer/ui-emotion@workspace:packages/ui/emotion"
   dependencies:
-    "@29cm/config-storybook": "workspace:*"
-    "@29cm/ui-reset": "workspace:*"
-    "@29cm/ui-tokens": "workspace:*"
+    "@eCustomer/config-storybook": "workspace:*"
+    "@eCustomer/ui-reset": "workspace:*"
+    "@eCustomer/ui-tokens": "workspace:*"
     "@emotion/react": "npm:*"
     "@emotion/styled": "npm:*"
     "@storybook/addon-actions": "npm:*"
@@ -137,25 +137,25 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@29cm/ui-reset@workspace:*, @29cm/ui-reset@workspace:packages/ui/reset":
+"@eCustomer/ui-reset@workspace:*, @eCustomer/ui-reset@workspace:packages/ui/reset":
   version: 0.0.0-use.local
-  resolution: "@29cm/ui-reset@workspace:packages/ui/reset"
+  resolution: "@eCustomer/ui-reset@workspace:packages/ui/reset"
   dependencies:
     pretendard: "npm:1.3.8"
   languageName: unknown
   linkType: soft
 
-"@29cm/ui-tokens@workspace:*, @29cm/ui-tokens@workspace:packages/ui/tokens":
+"@eCustomer/ui-tokens@workspace:*, @eCustomer/ui-tokens@workspace:packages/ui/tokens":
   version: 0.0.0-use.local
-  resolution: "@29cm/ui-tokens@workspace:packages/ui/tokens"
+  resolution: "@eCustomer/ui-tokens@workspace:packages/ui/tokens"
   dependencies:
     typescript: "npm:*"
   languageName: unknown
   linkType: soft
 
-"@29cm/utils-common@workspace:*, @29cm/utils-common@workspace:packages/utils/common":
+"@eCustomer/utils-common@workspace:*, @eCustomer/utils-common@workspace:packages/utils/common":
   version: 0.0.0-use.local
-  resolution: "@29cm/utils-common@workspace:packages/utils/common"
+  resolution: "@eCustomer/utils-common@workspace:packages/utils/common"
   dependencies:
     "@tanstack/react-query": "npm:^5.50.1"
     "@types/node": "npm:20.8.9"

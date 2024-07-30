@@ -28,7 +28,7 @@
       }
     ],
     "paths": {
-      "@29cm/ui-emotion": ["../../ui/emotion/src"]
+      "@eCustomer/ui-emotion": ["../../ui/emotion/src"]
     }
   },
   // Storybook

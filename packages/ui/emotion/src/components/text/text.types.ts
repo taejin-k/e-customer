@@ -1,4 +1,4 @@
-import { vars } from '@29cm/ui-tokens';
+import { vars } from '@eCustomer/ui-tokens';
 import type { ElementType, PropsWithChildren } from 'react';
 
 export type TypographyType = keyof typeof vars.$semantic.typography;

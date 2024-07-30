@@ -1,4 +1,4 @@
-import { vars, type SemanticTextColorKey } from '@29cm/ui-tokens';
+import { vars, type SemanticTextColorKey } from '@eCustomer/ui-tokens';
 import type { CSSProperties } from 'react';
 import type { SpinnerColor, SpinnerSize } from '../spinner/spinner.types';
 import type { TypographyType } from '../text/text.types';

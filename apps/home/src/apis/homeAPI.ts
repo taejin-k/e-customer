@@ -4,22 +4,22 @@ import { BannersResponse, CartResponse, FeedsResponse, GatesResponse } from 'src
 import axiosInstance from './axiosInstance';
 
 export const getBannersAPI = async () => {
-  const res = await fetch(`${BASE_URL}/api/banners`);
-  const data: BannersResponse = await res.json();
+  const response = await fetch(`${BASE_URL}/api/banners`);
+  const data: BannersResponse = await response.json();
 
   return data.data;
 };
 
 export const getGatesAPI = async () => {
-  const res = await fetch(`${BASE_URL}/api/gates`);
-  const data: GatesResponse = await res.json();
+  const response = await fetch(`${BASE_URL}/api/gates`);
+  const data: GatesResponse = await response.json();
 
   return data.data;
 };
 
 export const getFeedsAPI = async () => {
-  const res = await fetch(`${BASE_URL}/api/feeds`);
-  const data: FeedsResponse = await res.json();
+  const response = await fetch(`${BASE_URL}/api/feeds`);
+  const data: FeedsResponse = await response.json();
 
   return data.data;
 };

@@ -1,5 +1,5 @@
-import { CartIcon, Text } from '@29cm/ui-emotion';
-import { vars } from '@29cm/ui-tokens';
+import { CartIcon, Text } from '@eCustomer/ui-emotion';
+import { vars } from '@eCustomer/ui-tokens';
 import styled from '@emotion/styled';
 import { forwardRef } from 'react';
 import CustomImage from 'src/components/commons/CustomImage';

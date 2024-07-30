@@ -1,4 +1,4 @@
-import { products } from '@29cm/mocks-data';
+import { products } from '@eCustomer/mocks-data';
 import {
   HTTP_METHOD,
   HTTP_STATUS_CODE,
@@ -7,7 +7,7 @@ import {
   delay,
   shuffle,
   withFilter,
-} from '@29cm/utils-common';
+} from '@eCustomer/utils-common';
 
 const handler = withFilter<typeof products>(
   async (_, res) => {

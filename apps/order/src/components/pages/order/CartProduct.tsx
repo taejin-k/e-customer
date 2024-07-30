@@ -1,5 +1,5 @@
-import { Text } from '@29cm/ui-emotion';
-import { vars } from '@29cm/ui-tokens';
+import { Text } from '@eCustomer/ui-emotion';
+import { vars } from '@eCustomer/ui-tokens';
 import styled from '@emotion/styled';
 import { useEffect, useState } from 'react';
 import CustomImage from 'src/components/commons/CustomImage';
@@ -77,7 +77,7 @@ const CartProduct = ({
             할인적용 : {currentCoupon?.couponTitle || '없음'}
           </Text>
           <Text typography="text-xs-medium" color="secondary">
-            배송비 : 29CM 무료배송
+            배송비 : eCustomer 무료배송
           </Text>
         </InformationWrapper>
       </Information>

@@ -1,10 +1,9 @@
 export const feeds = [
   {
     feedNo: 18027,
-    feedTitle: '29CM가 처음이신가요?',
+    feedTitle: 'eCustomer가 처음이신가요?',
     feedContents:
-      '환영해요, 지원자님 29CM은 아무 제품이나 추천하지 않아요, 고객의 취향에 알맞는 제품을 추천하고 나아가 고객도 몰랐던 스스로의 취향을 찾아주는 커머스를 추구해요. 기술과 인간에 대한 이해를 바탕으로 그 어떤 커머스도 해내지 못하고 있는 멋진 일을 함께 만들어요',
-    feedLink: 'https://www.29cm.co.kr/event/benefit-guide/guide',
+      '고객의 취향에 알맞는 제품을 추천하고 나아가 고객도 몰랐던 스스로의 취향을 찾아주는 커머스를 추구해요. 기술과 인간에 대한 이해를 바탕으로 그 어떤 커머스도 해내지 못하고 있는 멋진 일을 함께 만들어요',
     imageUrl: 'https://img.29cm.co.kr/next-edition/2020/08/24/a9ebd1d26992499583dc838b2c753590_20200824152526.jpg',
     relatedProducts: [],
     recommendCode: 0,
@@ -13,7 +12,6 @@ export const feeds = [
     feedNo: 87420,
     feedTitle: '단 3일간의 혜택',
     feedContents: '라퍼지포우먼이 특별한 혜택을 제안합니다. 최대 63%의 할인 소식을 놓치지마세요.',
-    feedLink: 'https://content.29cm.co.kr/brand-news/25698',
     imageUrl: 'https://img.29cm.co.kr/cm/202311/11ee7a28ce229f99a5b32b8aa9a87962.jpg',
     relatedProducts: [
       {
@@ -39,7 +37,6 @@ export const feeds = [
     feedNo: 86843,
     feedTitle: '사랑스러운 파리의 겨울',
     feedContents: '사랑스러운 파리의 겨울과 함께한 랭앤루의 23WINTER 컬렉션을 소개합니다.',
-    feedLink: 'https://content.29cm.co.kr/brand-news/14395',
     imageUrl: 'https://img.29cm.co.kr/cms/202311/11ee7b9b65de2b118a7f972201cdaeb9.jpeg',
     relatedProducts: [
       {
@@ -58,7 +55,6 @@ export const feeds = [
     feedTitle: '쌀쌀한 날씨에도 클래식하게',
     feedContents:
       '쌀쌀한 날씨에도 클래식함을 잃고 싶지 않다면 커스텀멜로우를 살펴보세요. 새드스마일 윈터 아이템 10% 할인도 준비했어요.',
-    feedLink: 'https://content.29cm.co.kr/brand-news/14428',
     imageUrl: 'https://img.29cm.co.kr/cm/202311/11ee7a289a0dccd58a7fcd6cbd3dd5a6.jpg',
     relatedProducts: [
       {
@@ -85,7 +81,6 @@ export const feeds = [
     feedTitle: '일요일에 만나요',
     feedContents:
       '오직 일요일에만 만날 수 있는 뷰티 브랜드의 29% 쿠폰 할인 소식. 인스테드와 오휘, 페이스핏을 일요입점회만의 혜택으로 소개합니다.',
-    feedLink: 'https://content.29cm.co.kr/welcoming_sunday/2023/11/05/1st',
     imageUrl: 'https://img.29cm.co.kr/cm/202311/11ee7a286c4b03fba5b321e55cb99869.jpg',
     relatedProducts: [
       {
@@ -112,7 +107,6 @@ export const feeds = [
     feedTitle: '편안한 일상을 함께할',
     feedContents:
       '조스라운지와 함께하는 하루는 모두 편안할 거예요. 모두에게 따스한 순간을 선사하는 파자마. 베스트 아이템만 모았어요.',
-    feedLink: 'https://content.29cm.co.kr/brand-news/14416',
     imageUrl: 'https://img.29cm.co.kr/cms/202310/11ee76b75dd64425a5b3179906e1488e.jpeg',
     relatedProducts: [
       {

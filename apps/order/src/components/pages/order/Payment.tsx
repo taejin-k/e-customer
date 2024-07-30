@@ -1,5 +1,5 @@
-import { Text } from '@29cm/ui-emotion';
-import { vars } from '@29cm/ui-tokens';
+import { Text } from '@eCustomer/ui-emotion';
+import { vars } from '@eCustomer/ui-tokens';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { useState } from 'react';

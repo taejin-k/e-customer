@@ -1,11 +1,10 @@
-import { Button, Text } from '@29cm/ui-emotion';
-import { vars } from '@29cm/ui-tokens';
+import { Button, Text } from '@eCustomer/ui-emotion';
+import { vars } from '@eCustomer/ui-tokens';
 import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
 import CustomImage from 'src/components/commons/CustomImage';
 import { NEXT_IMAGE_SIZES } from 'src/constants/image';
 import { NewFeedType } from 'src/types/home';
-import { openNewWindow } from 'src/utils/url';
 import RelatedProduct from './RelatedProduct';
 
 interface FeedProps {
@@ -13,7 +12,7 @@ interface FeedProps {
 }
 
 const Feed = ({ feed }: FeedProps) => {
-  const { feedTitle, feedContents, feedLink, imageUrl, recommendCode, relatedProducts } = feed;
+  const { feedTitle, feedContents, imageUrl, recommendCode, relatedProducts } = feed;
   const router = useRouter();
 
   const getButtonLabel = (recommendCode: number) => {
@@ -28,7 +27,7 @@ const Feed = ({ feed }: FeedProps) => {
   return (
     <Container>
       <Wrapper>
-        <ImageBox onClick={() => openNewWindow(feedLink)}>
+        <ImageBox>
           <Image src={imageUrl} fill sizes={NEXT_IMAGE_SIZES} priority alt={feedTitle} />
         </ImageBox>
         <ContentBox>

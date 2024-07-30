@@ -89,7 +89,7 @@ export const products = [
   },
   {
     productNo: 2201224,
-    productName: '[29Exclusive] PLAIN COTTON CASHMERE CARDIGAN (5 COLORS)',
+    productName: '[Exclusive] PLAIN COTTON CASHMERE CARDIGAN (5 COLORS)',
     price: 138000,
     imageUrl: 'https://img.29cm.co.kr/item/202310/11ee73de8b710e018a7f3126868ac607.jpg?width=400',
     priorityScore: 520,
@@ -151,7 +151,7 @@ export const products = [
   },
   {
     productNo: 2243981,
-    productName: '[29CM 단독_혜원착용]11/27일 예약발송_4차리오더_리사이클 부클 카라 버튼업 니트 자켓_COCOA',
+    productName: '11/27일 예약발송_4차리오더_리사이클 부클 카라 버튼업 니트 자켓_COCOA',
     price: 149000,
     imageUrl: 'https://img.29cm.co.kr/item/202309/11ee5b6f6f8be2958a7f1ba518bfce0c.jpg?width=400',
     priorityScore: 60,
@@ -244,7 +244,7 @@ export const products = [
   },
   {
     productNo: 2219688,
-    productName: '[29Exclusive] 시티 트립 블루종 자켓',
+    productName: '[Exclusive] 시티 트립 블루종 자켓',
     price: 315000,
     imageUrl: 'https://img.29cm.co.kr/item/202310/11ee6362656d23698a7feb829bcd743f.jpg?width=400',
     priorityScore: 200,
@@ -326,7 +326,7 @@ export const products = [
   },
   {
     productNo: 1256092,
-    productName: '[29CM단독] [15%] handmade wool trench coat(5color/S,Msize)',
+    productName: 'handmade wool trench coat(5color/S,Msize)',
     price: 353100,
     imageUrl:
       'https://img.29cm.co.kr/next-product/2021/09/28/45832575955b45598c72077488795f02_20210928171913.jpg?width=400',
@@ -401,7 +401,7 @@ export const products = [
   },
   {
     productNo: 2184800,
-    productName: '[29Exlclusive] 리가즈 해링턴 블루종(4COLORS)',
+    productName: 'Exlclusive] 리가즈 해링턴 블루종(4COLORS)',
     price: 339000,
     imageUrl: 'https://img.29cm.co.kr/item/202309/11ee55d07d5fc23fa5b33b55f29f44f8.jpg?width=400',
     priorityScore: 540,
@@ -516,7 +516,7 @@ export const products = [
   },
   {
     productNo: 2236797,
-    productName: '[29CM ONLY] Two Tone Gloves (6 Colors)',
+    productName: 'Two Tone Gloves (6 Colors)',
     price: 35000,
     imageUrl: 'https://img.29cm.co.kr/item/202309/11ee53230fa471ff83bc1d7ba8ab31e8.jpg?width=400',
     priorityScore: 580,
@@ -964,7 +964,7 @@ export const products = [
   },
   {
     productNo: 2241574,
-    productName: '[29Exclusive] Collar Cardigan(10월13일 예약배송)',
+    productName: '[Exclusive] Collar Cardigan(10월13일 예약배송)',
     price: 128000,
     imageUrl: 'https://img.29cm.co.kr/item/202309/11ee5d1348f85575a5b351f80e17f4a1.jpg?width=400',
     priorityScore: 400,
@@ -972,7 +972,7 @@ export const products = [
   },
   {
     productNo: 1218510,
-    productName: '[29Exclusive] Fisherman Knit 피셔맨 니트 (4color)',
+    productName: '[Exclusive] Fisherman Knit 피셔맨 니트 (4color)',
     price: 148000,
     imageUrl: 'https://img.29cm.co.kr/item/202310/11ee63e163fd255b83bc4f920a3318ac.jpg?width=400',
     priorityScore: 490,
@@ -1075,7 +1075,7 @@ export const products = [
   },
   {
     productNo: 1796312,
-    productName: '[29CM 단독] TC4-JP01 필버그 다운베스트 (네이비)',
+    productName: 'TC4-JP01 필버그 다운베스트 (네이비)',
     price: 157000,
     imageUrl: '/next_product/2022/11/10/3e00face-3af0-474d-8af9-5f93c2d79cc3_20221110235930.jpg?width=400',
     priorityScore: 820,
@@ -1103,7 +1103,7 @@ export const products = [
   },
   {
     productNo: 1942803,
-    productName: '[29cm 단독][한소희착용][silver925] airy cubic earring',
+    productName: '[한소희착용][silver925] airy cubic earring',
     price: 36000,
     imageUrl:
       'https://img.29cm.co.kr/next-product/2023/03/09/eb4f32dcd11e4653b05c6841101971a0_20230309154646.jpg?width=400',
@@ -1354,7 +1354,7 @@ export const products = [
   },
   {
     productNo: 2292885,
-    productName: '[29CM단독] Padded Ribbon Keyring (Ballerina Pink)',
+    productName: 'Padded Ribbon Keyring (Ballerina Pink)',
     price: 30000,
     imageUrl: 'https://img.29cm.co.kr/item/202310/11ee6f130fd8c4df8a7fc97e550d64da.jpg?width=400',
     priorityScore: 70,
@@ -1539,7 +1539,7 @@ export const products = [
   },
   {
     productNo: 1828714,
-    productName: '[29CM 단독] TC4-JP06 로빈 후드 다운 (차콜네이비)',
+    productName: 'TC4-JP06 로빈 후드 다운 (차콜네이비)',
     price: 297000,
     imageUrl: '/next_product/2022/11/23/6a3f8243-673f-4cfd-839a-386fef5286d0_20221123201447.jpg?width=400',
     priorityScore: 130,
@@ -1558,7 +1558,7 @@ export const products = [
   },
   {
     productNo: 2201058,
-    productName: '[29CM 단독] Vintage Washing Ball cap (Black)',
+    productName: ' Vintage Washing Ball cap (Black)',
     price: 59000,
     imageUrl: 'https://img.29cm.co.kr/item/202309/11ee5c0607e4378d83bccfd2c36a1ac2.jpg?width=400',
     priorityScore: 590,
@@ -1710,7 +1710,7 @@ export const products = [
   },
   {
     productNo: 1913053,
-    productName: '[29Exlclusive]컴포트 후디 집업 니트(3COLORS)',
+    productName: '컴포트 후디 집업 니트(3COLORS)',
     price: 139000,
     imageUrl: 'https://img.29cm.co.kr/item/202309/11ee55e5e41f449b83bc155d1416aaa5.jpg?width=400',
     priorityScore: 210,
@@ -1718,7 +1718,7 @@ export const products = [
   },
   {
     productNo: 2182230,
-    productName: '[5차재입고 / 29CM단독] 몽냥이 인형 키링',
+    productName: '[5차재입고] 몽냥이 인형 키링',
     price: 42000,
     imageUrl: 'https://img.29cm.co.kr/item/202308/11ee402281a5180cacc569ae88fc7159.jpg?width=400',
     priorityScore: 480,

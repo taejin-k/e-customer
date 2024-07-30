@@ -1,4 +1,4 @@
-import { baseStorybookPreview } from '@29cm/config-storybook';
-import '@29cm/ui-reset';
+import { baseStorybookPreview } from '@eCustomer/config-storybook';
+import '@eCustomer/ui-reset';
 
 export default { ...baseStorybookPreview };

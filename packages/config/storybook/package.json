@@ -1,5 +1,5 @@
 {
-  "name": "@29cm/config-storybook",
+  "name": "@eCustomer/config-storybook",
   "version": "0.0.0",
   "main": "index.ts",
   "devDependencies": {

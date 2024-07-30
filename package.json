@@ -1,10 +1,10 @@
 {
-  "name": "@29cm/root",
+  "name": "@eCustomer/root",
   "version": "0.1.0",
   "private": true,
   "main": "index.js",
-  "repository": "https://github.com/29CM-Developers/29cm-fe-pretest-commerce.git",
-  "author": "inseongso-29cm <parang@29cm.co.kr>",
+  "repository": "https://github.com/eCustomer-Developers/eCustomer-fe-pretest-commerce.git",
+  "author": "inseongso-eCustomer <parang@eCustomer.co.kr>",
   "license": "MIT",
   "packageManager": "yarn@4.1.1",
   "engines": {
@@ -21,16 +21,16 @@
     "packages/utils/*"
   ],
   "scripts": {
-    "dev:home": "yarn workspace @29cm/home dev",
-    "dev:order": "yarn workspace @29cm/order dev",
-    "build:home": "yarn workspace @29cm/home build",
-    "build:order": "yarn workspace @29cm/order build",
-    "start:home": "yarn workspace @29cm/home start",
-    "start:order": "yarn workspace @29cm/order start",
+    "dev:home": "yarn workspace @eCustomer/home dev",
+    "dev:order": "yarn workspace @eCustomer/order dev",
+    "build:home": "yarn workspace @eCustomer/home build",
+    "build:order": "yarn workspace @eCustomer/order build",
+    "start:home": "yarn workspace @eCustomer/home start",
+    "start:order": "yarn workspace @eCustomer/order start",
     "dev": "yarn workspaces foreach -Aptv run dev",
     "build": "yarn workspaces foreach -Aptv run build",
     "start": "yarn workspaces foreach -Aptv run start",
-    "storybook": "yarn workspace @29cm/ui-emotion storybook"
+    "storybook": "yarn workspace @eCustomer/ui-emotion storybook"
   },
   "dependenciesMeta": {
     "core-js-pure@3.33.2": {

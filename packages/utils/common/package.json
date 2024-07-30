@@ -1,5 +1,5 @@
 {
-  "name": "@29cm/utils-common",
+  "name": "@eCustomer/utils-common",
   "version": "1.0.0",
   "main": "./src/index.ts",
   "devDependencies": {

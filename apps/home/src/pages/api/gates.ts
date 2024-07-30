@@ -1,5 +1,5 @@
-import { gates } from '@29cm/mocks-data';
-import { HTTP_METHOD, HTTP_STATUS_CODE, RESPONSE_MESSAGE, _1_SECOND, delay, withFilter } from '@29cm/utils-common';
+import { gates } from '@eCustomer/mocks-data';
+import { HTTP_METHOD, HTTP_STATUS_CODE, RESPONSE_MESSAGE, _1_SECOND, delay, withFilter } from '@eCustomer/utils-common';
 
 const handler = withFilter<typeof gates>(
   async (_, res) => {

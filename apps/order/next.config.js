@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
-  transpilePackages: ['@29cm/ui-emotion'],
+  transpilePackages: ['@eCustomer/ui-emotion'],
   images: {
     domains: ['img.29cm.co.kr'],
   },

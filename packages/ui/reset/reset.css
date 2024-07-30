@@ -347,7 +347,7 @@ html.layer_scrolling body {
   --ruler-static-scale-font-family-pretendard: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
     system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic',
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
-  --ruler-static-scale-font-family-29cm-default-font: var(--ruler-static-scale-font-family-pretendard);
+  --ruler-static-scale-font-family-eCustomer-default-font: var(--ruler-static-scale-font-family-pretendard);
 
   /* semantic-color */
   --ruler-semantic-color-text-primary: var(--ruler-scale-color-gray-950);
@@ -423,199 +423,201 @@ html.layer_scrolling body {
   --ruler-semantic-color-overlay-dimmed: var(--ruler-static-scale-color-black-alpha-500);
 
   /* typography */
-  --ruler-semantic-typography-title-xxl-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-title-xxl-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-title-xxl-font-weight: var(--ruler-scale-font-weight-regular);
   --ruler-semantic-typography-title-xxl-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-title-xxl-line-height: var(--ruler-scale-line-height-3);
   --ruler-semantic-typography-title-xxl-font-size: var(--ruler-scale-dimension-font-size-550);
 
-  --ruler-semantic-typography-title-xxl-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-title-xxl-bold-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-title-xxl-bold-font-weight: var(--ruler-scale-font-weight-bold);
   --ruler-semantic-typography-title-xxl-bold-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-title-xxl-bold-line-height: var(--ruler-scale-line-height-3);
   --ruler-semantic-typography-title-xxl-bold-font-size: var(--ruler-scale-dimension-font-size-550);
 
-  --ruler-semantic-typography-title-xxl-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-title-xxl-medium-font-family: var(
+    --ruler-static-scale-font-family-eCustomer-default-font
+  );
   --ruler-semantic-typography-title-xxl-medium-font-weight: var(--ruler-scale-font-weight-medium);
   --ruler-semantic-typography-title-xxl-medium-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-title-xxl-medium-line-height: var(--ruler-scale-line-height-3);
   --ruler-semantic-typography-title-xxl-medium-font-size: var(--ruler-scale-dimension-font-size-550);
 
-  --ruler-semantic-typography-title-xl-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-title-xl-bold-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-title-xl-bold-font-weight: var(--ruler-scale-font-weight-bold);
   --ruler-semantic-typography-title-xl-bold-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-title-xl-bold-line-height: var(--ruler-scale-line-height-3);
   --ruler-semantic-typography-title-xl-bold-font-size: var(--ruler-scale-dimension-font-size-500);
 
-  --ruler-semantic-typography-title-xl-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-title-xl-medium-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-title-xl-medium-font-weight: var(--ruler-scale-font-weight-medium);
   --ruler-semantic-typography-title-xl-medium-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-title-xl-medium-line-height: var(--ruler-scale-line-height-3);
   --ruler-semantic-typography-title-xl-medium-font-size: var(--ruler-scale-dimension-font-size-500);
 
-  --ruler-semantic-typography-title-l-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-title-l-bold-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-title-l-bold-font-weight: var(--ruler-scale-font-weight-bold);
   --ruler-semantic-typography-title-l-bold-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-title-l-bold-line-height: var(--ruler-scale-line-height-3);
   --ruler-semantic-typography-title-l-bold-font-size: var(--ruler-scale-dimension-font-size-400);
 
-  --ruler-semantic-typography-title-l-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-title-l-medium-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-title-l-medium-font-weight: var(--ruler-scale-font-weight-medium);
   --ruler-semantic-typography-title-l-medium-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-title-l-medium-line-height: var(--ruler-scale-line-height-3);
   --ruler-semantic-typography-title-l-medium-font-size: var(--ruler-scale-dimension-font-size-400);
 
-  --ruler-semantic-typography-title-m-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-title-m-bold-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-title-m-bold-font-weight: var(--ruler-scale-font-weight-bold);
   --ruler-semantic-typography-title-m-bold-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-title-m-bold-line-height: var(--ruler-scale-line-height-3);
   --ruler-semantic-typography-title-m-bold-font-size: var(--ruler-scale-dimension-font-size-350);
 
-  --ruler-semantic-typography-title-m-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-title-m-medium-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-title-m-medium-font-weight: var(--ruler-scale-font-weight-medium);
   --ruler-semantic-typography-title-m-medium-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-title-m-medium-line-height: var(--ruler-scale-line-height-3);
   --ruler-semantic-typography-title-m-medium-font-size: var(--ruler-scale-dimension-font-size-350);
 
-  --ruler-semantic-typography-title-s-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-title-s-bold-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-title-s-bold-font-weight: var(--ruler-scale-font-weight-bold);
   --ruler-semantic-typography-title-s-bold-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-title-s-bold-line-height: var(--ruler-scale-line-height-3);
   --ruler-semantic-typography-title-s-bold-font-size: var(--ruler-scale-dimension-font-size-300);
 
-  --ruler-semantic-typography-title-s-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-title-s-medium-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-title-s-medium-font-weight: var(--ruler-scale-font-weight-medium);
   --ruler-semantic-typography-title-s-medium-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-title-s-medium-line-height: var(--ruler-scale-line-height-3);
   --ruler-semantic-typography-title-s-medium-font-size: var(--ruler-scale-dimension-font-size-300);
 
-  --ruler-semantic-typography-title-xs-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-title-xs-bold-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-title-xs-bold-font-weight: var(--ruler-scale-font-weight-bold);
   --ruler-semantic-typography-title-xs-bold-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-title-xs-bold-line-height: var(--ruler-scale-line-height-3);
   --ruler-semantic-typography-title-xs-bold-font-size: var(--ruler-scale-dimension-font-size-250);
 
-  --ruler-semantic-typography-title-xs-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-title-xs-medium-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-title-xs-medium-font-weight: var(--ruler-scale-font-weight-medium);
   --ruler-semantic-typography-title-xs-medium-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-title-xs-medium-line-height: var(--ruler-scale-line-height-3);
   --ruler-semantic-typography-title-xs-medium-font-size: var(--ruler-scale-dimension-font-size-250);
 
-  --ruler-semantic-typography-text-xxl-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-text-xxl-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-text-xxl-font-weight: var(--ruler-scale-font-weight-regular);
   --ruler-semantic-typography-text-xxl-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-text-xxl-line-height: var(--ruler-scale-line-height-4);
   --ruler-semantic-typography-text-xxl-font-size: var(--ruler-scale-dimension-font-size-200);
 
-  --ruler-semantic-typography-text-xxl-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-text-xxl-bold-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-text-xxl-bold-font-weight: var(--ruler-scale-font-weight-bold);
   --ruler-semantic-typography-text-xxl-bold-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-text-xxl-bold-line-height: var(--ruler-scale-line-height-4);
   --ruler-semantic-typography-text-xxl-bold-font-size: var(--ruler-scale-dimension-font-size-200);
 
-  --ruler-semantic-typography-text-xxl-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-text-xxl-medium-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-text-xxl-medium-font-weight: var(--ruler-scale-font-weight-medium);
   --ruler-semantic-typography-text-xxl-medium-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-text-xxl-medium-line-height: var(--ruler-scale-line-height-4);
   --ruler-semantic-typography-text-xxl-medium-font-size: var(--ruler-scale-dimension-font-size-200);
 
-  --ruler-semantic-typography-text-xl-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-text-xl-bold-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-text-xl-bold-font-weight: var(--ruler-scale-font-weight-bold);
   --ruler-semantic-typography-text-xl-bold-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-text-xl-bold-line-height: var(--ruler-scale-line-height-5);
   --ruler-semantic-typography-text-xl-bold-font-size: var(--ruler-scale-dimension-font-size-150);
 
-  --ruler-semantic-typography-text-xl-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-text-xl-medium-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-text-xl-medium-font-weight: var(--ruler-scale-font-weight-medium);
   --ruler-semantic-typography-text-xl-medium-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-text-xl-medium-line-height: var(--ruler-scale-line-height-5);
   --ruler-semantic-typography-text-xl-medium-font-size: var(--ruler-scale-dimension-font-size-150);
 
-  --ruler-semantic-typography-text-xl-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-text-xl-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-text-xl-font-weight: var(--ruler-scale-font-weight-regular);
   --ruler-semantic-typography-text-xl-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-text-xl-line-height: var(--ruler-scale-line-height-5);
   --ruler-semantic-typography-text-xl-font-size: var(--ruler-scale-dimension-font-size-150);
 
-  --ruler-semantic-typography-text-l-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-text-l-bold-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-text-l-bold-font-weight: var(--ruler-scale-font-weight-bold);
   --ruler-semantic-typography-text-l-bold-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-text-l-bold-line-height: var(--ruler-scale-line-height-4);
   --ruler-semantic-typography-text-l-bold-font-size: var(--ruler-scale-dimension-font-size-125);
 
-  --ruler-semantic-typography-text-l-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-text-l-medium-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-text-l-medium-font-weight: var(--ruler-scale-font-weight-medium);
   --ruler-semantic-typography-text-l-medium-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-text-l-medium-line-height: var(--ruler-scale-line-height-4);
   --ruler-semantic-typography-text-l-medium-font-size: var(--ruler-scale-dimension-font-size-125);
 
-  --ruler-semantic-typography-text-l-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-text-l-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-text-l-font-weight: var(--ruler-scale-font-weight-regular);
   --ruler-semantic-typography-text-l-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-text-l-line-height: var(--ruler-scale-line-height-4);
   --ruler-semantic-typography-text-l-font-size: var(--ruler-scale-dimension-font-size-125);
 
-  --ruler-semantic-typography-text-m-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-text-m-bold-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-text-m-bold-font-weight: var(--ruler-scale-font-weight-bold);
   --ruler-semantic-typography-text-m-bold-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-text-m-bold-line-height: var(--ruler-scale-line-height-4);
   --ruler-semantic-typography-text-m-bold-font-size: var(--ruler-scale-dimension-font-size-100);
 
-  --ruler-semantic-typography-text-m-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-text-m-medium-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-text-m-medium-font-weight: var(--ruler-scale-font-weight-medium);
   --ruler-semantic-typography-text-m-medium-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-text-m-medium-line-height: var(--ruler-scale-line-height-4);
   --ruler-semantic-typography-text-m-medium-font-size: var(--ruler-scale-dimension-font-size-100);
 
-  --ruler-semantic-typography-text-m-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-text-m-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-text-m-font-weight: var(--ruler-scale-font-weight-regular);
   --ruler-semantic-typography-text-m-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-text-m-line-height: var(--ruler-scale-line-height-4);
   --ruler-semantic-typography-text-m-font-size: var(--ruler-scale-dimension-font-size-100);
 
-  --ruler-semantic-typography-text-s-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-text-s-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-text-s-font-weight: var(--ruler-scale-font-weight-regular);
   --ruler-semantic-typography-text-s-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-text-s-line-height: var(--ruler-scale-line-height-3);
   --ruler-semantic-typography-text-s-font-size: var(--ruler-scale-dimension-font-size-75);
 
-  --ruler-semantic-typography-text-s-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-text-s-bold-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-text-s-bold-font-weight: var(--ruler-scale-font-weight-bold);
   --ruler-semantic-typography-text-s-bold-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-text-s-bold-line-height: var(--ruler-scale-line-height-3);
   --ruler-semantic-typography-text-s-bold-font-size: var(--ruler-scale-dimension-font-size-75);
 
-  --ruler-semantic-typography-text-s-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-text-s-medium-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-text-s-medium-font-weight: var(--ruler-scale-font-weight-medium);
   --ruler-semantic-typography-text-s-medium-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-text-s-medium-line-height: var(--ruler-scale-line-height-3);
   --ruler-semantic-typography-text-s-medium-font-size: var(--ruler-scale-dimension-font-size-75);
 
-  --ruler-semantic-typography-text-xs-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-text-xs-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-text-xs-font-weight: var(--ruler-scale-font-weight-regular);
   --ruler-semantic-typography-text-xs-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-text-xs-line-height: var(--ruler-scale-line-height-3);
   --ruler-semantic-typography-text-xs-font-size: var(--ruler-scale-dimension-font-size-50);
 
-  --ruler-semantic-typography-text-xs-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-text-xs-bold-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-text-xs-bold-font-weight: var(--ruler-scale-font-weight-bold);
   --ruler-semantic-typography-text-xs-bold-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-text-xs-bold-line-height: var(--ruler-scale-line-height-3);
   --ruler-semantic-typography-text-xs-bold-font-size: var(--ruler-scale-dimension-font-size-50);
 
-  --ruler-semantic-typography-text-xs-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-text-xs-medium-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-text-xs-medium-font-weight: var(--ruler-scale-font-weight-medium);
   --ruler-semantic-typography-text-xs-medium-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-text-xs-medium-line-height: var(--ruler-scale-line-height-3);
   --ruler-semantic-typography-text-xs-medium-font-size: var(--ruler-scale-dimension-font-size-50);
 
-  --ruler-semantic-typography-text-xxs-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-text-xxs-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-text-xxs-font-weight: var(--ruler-scale-font-weight-regular);
   --ruler-semantic-typography-text-xxs-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-text-xxs-line-height: var(--ruler-scale-line-height-2);
   --ruler-semantic-typography-text-xxs-font-size: var(--ruler-scale-dimension-font-size-25);
 
-  --ruler-semantic-typography-text-xxs-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+  --ruler-semantic-typography-text-xxs-medium-font-family: var(--ruler-static-scale-font-family-eCustomer-default-font);
   --ruler-semantic-typography-text-xxs-medium-font-weight: var(--ruler-scale-font-weight-medium);
   --ruler-semantic-typography-text-xxs-medium-letter-spacing: var(--ruler-scale-letter-spacing);
   --ruler-semantic-typography-text-xxs-medium-line-height: var(--ruler-scale-line-height-2);

@@ -1,5 +1,5 @@
 {
-  "name": "@29cm/order",
+  "name": "@eCustomer/order",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -18,11 +18,11 @@
     "react-dom": "*"
   },
   "devDependencies": {
-    "@29cm/mocks-data": "workspace:*",
-    "@29cm/ui-emotion": "workspace:*",
-    "@29cm/ui-reset": "workspace:*",
-    "@29cm/ui-tokens": "workspace:*",
-    "@29cm/utils-common": "workspace:*",
+    "@eCustomer/mocks-data": "workspace:*",
+    "@eCustomer/ui-emotion": "workspace:*",
+    "@eCustomer/ui-reset": "workspace:*",
+    "@eCustomer/ui-tokens": "workspace:*",
+    "@eCustomer/utils-common": "workspace:*",
     "@types/node": "*",
     "@types/react": "*",
     "@types/react-dom": "*",

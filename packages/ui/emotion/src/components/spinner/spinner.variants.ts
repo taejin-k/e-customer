@@ -1,4 +1,4 @@
-import { vars } from '@29cm/ui-tokens';
+import { vars } from '@eCustomer/ui-tokens';
 import type { CSSProperties } from 'react';
 import type { SpinnerColor, SpinnerSize } from './spinner.types';
 

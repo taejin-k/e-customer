@@ -1,4 +1,4 @@
-import { vars } from '@29cm/ui-tokens';
+import { vars } from '@eCustomer/ui-tokens';
 import styled from '@emotion/styled';
 
 export const StyledProductCard = styled.div`

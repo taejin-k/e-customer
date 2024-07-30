@@ -1,4 +1,4 @@
-import { HTTP_METHOD, HTTP_STATUS_CODE, RESPONSE_MESSAGE, readJSON, withFilter } from '@29cm/utils-common';
+import { HTTP_METHOD, HTTP_STATUS_CODE, RESPONSE_MESSAGE, readJSON, withFilter } from '@eCustomer/utils-common';
 import fsPromises from 'fs/promises';
 import path from 'path';
 

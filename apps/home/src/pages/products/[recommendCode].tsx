@@ -1,4 +1,4 @@
-import { CommonLayout } from '@29cm/ui-emotion';
+import { CommonLayout } from '@eCustomer/ui-emotion';
 import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
 import { useEffect, useRef } from 'react';
@@ -51,7 +51,7 @@ export default function Products() {
   }, [recommendedProducts, hasNextPage, fetchNextPage]);
 
   return (
-    <CommonLayout prefix={<GoBack size={22} />} title="지원자님을 위한 추천상품" cartCount={carts?.length || 0}>
+    <CommonLayout prefix={<GoBack size={22} />} title="추천상품" cartCount={carts?.length || 0}>
       <Container>
         {newRecommendedProducts?.map((recommendedProduct, index, array) => (
           <RecommnedProduct

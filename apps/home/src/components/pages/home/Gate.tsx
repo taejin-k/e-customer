@@ -1,9 +1,8 @@
-import { Text } from '@29cm/ui-emotion';
-import { vars } from '@29cm/ui-tokens';
+import { Text } from '@eCustomer/ui-emotion';
+import { vars } from '@eCustomer/ui-tokens';
 import styled from '@emotion/styled';
 import CustomImage from 'src/components/commons/CustomImage';
 import { GateType } from 'src/types/home';
-import { openNewWindow } from 'src/utils/url';
 
 interface GateProps {
   gate: GateType;
@@ -11,10 +10,10 @@ interface GateProps {
 }
 
 const Gate = ({ gate, icon }: GateProps) => {
-  const { imageUrl, gateTitle, linkValue } = gate;
+  const { imageUrl, gateTitle } = gate;
 
   return (
-    <Container onClick={() => openNewWindow(linkValue)}>
+    <Container>
       <Image width={38} height={38} priority src={imageUrl} alt={gateTitle} />
       <Text color="primary" typography="text-l-medium">
         {gateTitle}

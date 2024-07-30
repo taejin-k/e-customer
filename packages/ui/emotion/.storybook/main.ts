@@ -1,3 +1,3 @@
-import { baseNextJsStorybookConfig } from '@29cm/config-storybook';
+import { baseNextJsStorybookConfig } from '@eCustomer/config-storybook';
 
 export default { ...baseNextJsStorybookConfig };

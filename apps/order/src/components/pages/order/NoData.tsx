@@ -1,4 +1,4 @@
-import { Text } from '@29cm/ui-emotion';
+import { Text } from '@eCustomer/ui-emotion';
 import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
 import ChevronRightSVG from 'src/components/svgs/ChevronRightSVG';

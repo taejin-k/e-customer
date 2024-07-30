@@ -1,5 +1,5 @@
-import { products } from '@29cm/mocks-data';
-import { HTTP_METHOD, HTTP_STATUS_CODE, RESPONSE_MESSAGE, _1_SECOND, delay, withFilter } from '@29cm/utils-common';
+import { products } from '@eCustomer/mocks-data';
+import { HTTP_METHOD, HTTP_STATUS_CODE, RESPONSE_MESSAGE, _1_SECOND, delay, withFilter } from '@eCustomer/utils-common';
 import type { NextApiRequest } from 'next';
 
 const ALL_PRODUCTS_CODE = 0;

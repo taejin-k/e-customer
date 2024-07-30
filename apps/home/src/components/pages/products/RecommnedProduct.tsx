@@ -1,7 +1,7 @@
-import { CartIcon, Text } from '@29cm/ui-emotion';
-import { vars } from '@29cm/ui-tokens';
+import { CartIcon, Text } from '@eCustomer/ui-emotion';
+import { vars } from '@eCustomer/ui-tokens';
 import styled from '@emotion/styled';
-import { forwardRef, useState } from 'react';
+import { forwardRef } from 'react';
 import CustomImage from 'src/components/commons/CustomImage';
 import { NEXT_IMAGE_SIZES } from 'src/constants/image';
 import { useAddCartMutation, useRemoveCartMutation } from 'src/quries/homeQuery';
@@ -15,7 +15,6 @@ interface ProductProps {
 
 const RecommnedProduct = forwardRef<HTMLDivElement, ProductProps>(({ recommendedProduct }, ref) => {
   const { imageUrl, availableCoupon, productName, price, isAddedCart } = recommendedProduct;
-  const [isError, setIsError] = useState(false);
 
   const { mutate: addCart, isPending: addPending } = useAddCartMutation();
   const { mutate: removeCart, isPending: removePending } = useRemoveCartMutation();

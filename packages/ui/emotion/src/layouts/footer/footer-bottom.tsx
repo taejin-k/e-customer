@@ -3,32 +3,28 @@ import styled from '@emotion/styled';
 export const FooterBottom = () => (
   <FooterBottomContainer>
     <SocialLink
-      href="https://instagram.com/29cm.official"
       target="_blank"
       backgroundUrl="next-next_attach/2023/02/14/1830bce606f3414f8ac62ecf31c387e3_20230214020455"
     >
       <Text>instagram</Text>
     </SocialLink>
     <SocialLink
-      href="https://www.youtube.com/@29CM"
       target="_blank"
       backgroundUrl="next-next_attach/2023/02/14/7eb922eab8794352a0e26f701a4730a7_20230214020512"
     >
       <Text>youtube</Text>
     </SocialLink>
     <SocialLink
-      href="https://apps.apple.com/us/app/29cm/id789634744"
       target="_blank"
       backgroundUrl="next-next_attach/2023/02/14/be0d982f48f748c489e81247df619681_20230214020602"
     >
-      <Text>29CM iOS app download</Text>
+      <Text>eCustomer iOS app download</Text>
     </SocialLink>
     <SocialLink
-      href="https://play.google.com/store/apps/details?id=com.the29cm.app29cm"
       target="_blank"
       backgroundUrl="next-next_attach/2023/02/14/47fffa1ac78348d9a7b6de7c64f30510_20230214020617"
     >
-      <Text>29CM Android app download</Text>
+      <Text>eCustomer Android app download</Text>
     </SocialLink>
   </FooterBottomContainer>
 );

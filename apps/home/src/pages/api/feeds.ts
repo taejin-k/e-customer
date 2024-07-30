@@ -1,5 +1,5 @@
-import { feeds } from '@29cm/mocks-data';
-import { HTTP_METHOD, HTTP_STATUS_CODE, RESPONSE_MESSAGE, _1_SECOND, delay, withFilter } from '@29cm/utils-common';
+import { feeds } from '@eCustomer/mocks-data';
+import { HTTP_METHOD, HTTP_STATUS_CODE, RESPONSE_MESSAGE, _1_SECOND, delay, withFilter } from '@eCustomer/utils-common';
 
 const handler = withFilter<typeof feeds>(
   async (_, res) => {

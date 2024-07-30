@@ -1,4 +1,4 @@
-import { CartIcon } from '@29cm/ui-emotion';
+import { CartIcon } from '@eCustomer/ui-emotion';
 import styled from '@emotion/styled';
 import Skeleton from 'src/components/commons/Skeleton';
 

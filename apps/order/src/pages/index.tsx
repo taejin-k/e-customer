@@ -1,4 +1,4 @@
-import { Button, CommonLayout, Text } from '@29cm/ui-emotion';
+import { Button, CommonLayout, Text } from '@eCustomer/ui-emotion';
 import styled from '@emotion/styled';
 import { useEffect, useRef, useState } from 'react';
 import { GoBack } from 'src/components/commons/GoBack';
@@ -192,7 +192,7 @@ export default function Order() {
 
       <Title>
         <Text typography="text-xxl-bold" color="primary">
-          지원자님을 위한 추천상품
+          추천상품
         </Text>
       </Title>
 

@@ -1,4 +1,4 @@
-import { vars } from '@29cm/ui-tokens';
+import { vars } from '@eCustomer/ui-tokens';
 import styled from '@emotion/styled';
 import MinusSVG from 'src/components/svgs/MinusSVG';
 import PlusSVG from 'src/components/svgs/PlusSVG';

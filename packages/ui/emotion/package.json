@@ -1,5 +1,5 @@
 {
-  "name": "@29cm/ui-emotion",
+  "name": "@eCustomer/ui-emotion",
   "version": "1.0.0",
   "main": "./src/index.ts",
   "scripts": {
@@ -10,9 +10,9 @@
     "@emotion/styled": "*"
   },
   "devDependencies": {
-    "@29cm/config-storybook": "workspace:*",
-    "@29cm/ui-reset": "workspace:*",
-    "@29cm/ui-tokens": "workspace:*",
+    "@eCustomer/config-storybook": "workspace:*",
+    "@eCustomer/ui-reset": "workspace:*",
+    "@eCustomer/ui-tokens": "workspace:*",
     "@storybook/addon-actions": "*",
     "@storybook/addon-essentials": "*",
     "@storybook/addon-interactions": "*",
