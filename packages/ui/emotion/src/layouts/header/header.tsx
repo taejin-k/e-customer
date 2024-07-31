@@ -15,7 +15,6 @@ export const Header = memo(({ prefix, suffix, title, cartCount }: HeaderProps) =
     <HeaderContainer>
       <HeaderBox>
         <HeaderMenuListBox>
-          <LogoBox>{prefix !== undefined ? prefix : <LogoLink href="http://localhost:3000" />}</LogoBox>
           {title ? (
             <Text typography="text-xl-bold" color="primary">
               {title}
